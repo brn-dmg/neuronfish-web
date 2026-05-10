@@ -27,6 +27,13 @@ Two-sided location-based deals marketplace for Bangladesh. Live in **4 cities: D
 
 ---
 
+## Site Features
+
+### Pluto — Website Chatbot ✓ SHIPPED
+Floating chat widget on all site pages. Powered by Google Gemini (`GEMINI_API_KEY`). Knows NeuronFish company info, both products, upcoming products, Play Store links, and contact info. Files: `src/components/pluto/`, `src/app/api/chat/route.ts`.
+
+---
+
 ## CHHAR Page Redesign Blueprint
 
 > Decided: 2026-05-11. Supersedes the existing `src/app/(site)/products/chhar/page.tsx`.

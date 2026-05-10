@@ -102,38 +102,18 @@ GEMINI_API_KEY=           # For Pluto chatbot (see Planned Enhancements)
 
 ---
 
-### 2. Pluto — Website Chatbot
+### 2. Pluto — Website Chatbot ✓ SHIPPED
 
-**Goal:** Add a floating chat widget named **Pluto** that helps visitors learn about NeuronFish, its products, and the company.
-
-**Name & Personality:** Pluto — friendly, knowledgeable assistant for NeuronFish
-
-**Scope (what it should know):**
-- NeuronFish company info (mission, vision, team)
-- Dikkha AI — features, target users, how it works, roadmap, availability
-- CHHAR — features, Dhaka coverage, how deals work
-- Upcoming products (Dhara, Study Abroad, Travel Partner)
-- Contact/support info
-- How to download the apps (Play Store links)
-
-**Tech approach:**
-- **API:** Google Gemini (via REST or `@google/generative-ai` SDK) — key: `GEMINI_API_KEY`
-- **Route:** `src/app/api/chat/route.ts` — streaming POST endpoint
-- **UI:** Floating button (bottom-right), sliding chat panel. UI can be designed externally (v0/Figma) or built in-house. Should match site's dark aesthetic.
-- **Context injection:** System prompt built from static site content (products, company info) — no RAG needed initially; embed knowledge directly in the system prompt
-- **Rate limiting:** Simple IP-based limiting or session token to avoid API abuse
-
-**Key files to create:**
+Floating chat widget live on all site pages. Files:
 ```
 src/app/api/chat/route.ts        # Streaming Gemini endpoint
 src/components/pluto/
-  ChatWidget.tsx                 # Floating button + panel (client component)
-  ChatMessages.tsx               # Message list with streaming support
+  ChatWidget.tsx                 # Floating button + panel
+  ChatMessages.tsx               # Message list with streaming
   ChatInput.tsx                  # Input bar
-  system-prompt.ts               # Static knowledge context for Pluto
+  system-prompt.ts               # Static knowledge context
 ```
-
-**Integration point:** Add `<ChatWidget />` to `src/app/(site)/layout.tsx` so it appears on all site pages.
+API: Google Gemini (`GEMINI_API_KEY`). Integrated in `src/app/(site)/layout.tsx`.
 
 ---
 
