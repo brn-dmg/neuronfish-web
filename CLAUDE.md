@@ -134,3 +134,19 @@ src/components/pluto/
 ```
 
 **Integration point:** Add `<ChatWidget />` to `src/app/(site)/layout.tsx` so it appears on all site pages.
+
+---
+
+## Agent skills
+
+### Issue tracker
+
+Issues live in GitHub Issues (`Risad-Raihan/neuronfish-web`) — use the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default label vocabulary (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context repo — one `CONTEXT.md` at the root, `docs/adr/` for architectural decisions (created lazily). See `docs/agents/domain.md`.
