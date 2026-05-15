@@ -288,10 +288,10 @@ export default function HomePage() {
                   style={{ boxShadow: "0 24px 60px rgba(0,0,0,0.65)" }}
                 >
                   <img
-                    src="/products/chhar/chhar-mock.png"
+                    src="/products/chhar/consumer/ss-01.png"
                     alt=""
                     aria-hidden
-                    className="w-full h-full object-cover object-[52%_28%]"
+                    className="w-full h-full object-cover object-top"
                   />
                 </div>
 
@@ -404,11 +404,11 @@ export default function HomePage() {
             {/* CHHAR card */}
             <AnimateOnScroll delay={200}>
               <GlowCard className="flex flex-col h-full overflow-hidden">
-                <div className="relative h-56 overflow-hidden flex gap-[3px] bg-[#021a0e]">
+                <div className="relative h-56 overflow-hidden flex gap-[3px] bg-[#08090A]">
                   {[
-                    { src: "/products/chhar/chhar-homepage.jpeg", alt: "CHHAR Home" },
-                    { src: "/products/chhar/chhar-discount-details.jpeg", alt: "Deal Details" },
-                    { src: "/products/chhar/chhar-map.jpeg", alt: "Map View" },
+                    { src: "/products/chhar/consumer/ss-01.png", alt: "CHHAR editorial home feed" },
+                    { src: "/products/chhar/consumer/ss-02.png", alt: "Flash deal countdown" },
+                    { src: "/products/chhar/consumer/ss-03.png", alt: "Deal discovery" },
                   ].map((slide, i) => (
                     <div key={i} className="flex-1 overflow-hidden">
                       <img
@@ -420,27 +420,28 @@ export default function HomePage() {
                   ))}
                   {/* Bottom fade */}
                   <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-card to-transparent pointer-events-none" />
-                  {/* Top tint */}
-                  <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-emerald-900/20 to-transparent pointer-events-none" />
+                  {/* Top tint — chartreuse brand accent */}
+                  <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-[#D9FF3B]/10 to-transparent pointer-events-none" />
                   {/* Product badge */}
-                  <div className="absolute top-3 left-3 flex items-center gap-2 rounded-xl border border-emerald-500/35 bg-background/85 px-2.5 py-1.5 backdrop-blur-sm">
+                  <div className="absolute top-3 left-3 flex items-center gap-2 rounded-xl border border-[#D9FF3B]/30 bg-background/85 px-2.5 py-1.5 backdrop-blur-sm">
                     <span className="text-sm leading-none">🏷️</span>
-                    <span className="text-xs font-bold text-emerald-400">CHHAR</span>
+                    <span className="text-xs font-bold text-[#D9FF3B]">CHHAR</span>
                   </div>
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <div className="mb-3 flex flex-wrap gap-2">
-                    <span className="inline-flex items-center rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-xs font-medium text-emerald-400">Lifestyle</span>
-                    <span className="inline-flex items-center rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-xs font-medium text-emerald-400">Savings</span>
+                    <span className="inline-flex items-center rounded-full bg-[#D9FF3B]/10 px-2.5 py-0.5 text-xs font-medium text-[#D9FF3B]">Deals</span>
+                    <span className="inline-flex items-center rounded-full bg-[#D9FF3B]/10 px-2.5 py-0.5 text-xs font-medium text-[#D9FF3B]">4 Cities</span>
                   </div>
                   <h3 className="text-2xl font-semibold tracking-tight text-foreground">CHHAR — ছাড়</h3>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                    Location-based discounts and promotions app focused on Dhaka. Find deals near you instantly.
+                    Two-sided deals marketplace live in Dhaka, Chittagong, Rajshahi &amp; Khulna. Flash deals for consumers, listings for businesses.
                   </p>
                   <div className="mt-auto pt-6">
                     <Button
                       asChild
-                      className="w-full group/btn bg-[#4C8E4F] text-white hover:bg-[#417a43]"
+                      className="w-full group/btn font-bold text-[#08090A]"
+                      style={{ backgroundColor: "#D9FF3B" }}
                     >
                       <Link href="/products/chhar" className="flex items-center gap-2">
                         Explore CHHAR
