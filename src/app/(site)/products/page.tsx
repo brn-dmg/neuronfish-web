@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, GraduationCap, Handshake, Plane } from "lucide-react"
+import { ArrowRight, GraduationCap, Handshake, Plane, Headphones, Moon, Users } from "lucide-react"
 import { DIKKHA_PLAY_STORE_URL, CHHAR_PLAY_STORE_URL } from "@/lib/constants"
 import { Button } from "@/components/ui/Button"
 import { Container } from "@/components/ui/Container"
@@ -11,6 +11,45 @@ export const metadata = {
   title: "Products",
   description: "Explore our AI-powered products: DIKKHA for education and CHHAR for smart savings.",
 }
+
+const UPCOMING = [
+  {
+    title: "Dhara",
+    desc: "Trusted booking service specifically designed for NGO facilities.",
+    icon: Handshake,
+    emoji: "🌿",
+  },
+  {
+    title: "Study Abroad Assistant",
+    desc: "AI + curated university, scholarship, and visa processing assistant for Bangladeshi students.",
+    icon: GraduationCap,
+    emoji: "🎓",
+  },
+  {
+    title: "Travel Partner",
+    desc: "AI-powered domestic and international travel planning assistant for Bangladeshi travelers.",
+    icon: Plane,
+    emoji: "✈️",
+  },
+  {
+    title: "EZ-IELTS",
+    desc: "AI-powered IELTS preparation platform with multi-speaker audio, full mock tests, and personalized feedback.",
+    icon: Headphones,
+    emoji: "🎧",
+  },
+  {
+    title: "Noor (نور)",
+    desc: "AI Islamic knowledge companion and Quran study app. Sunni-aligned, closed-corpus RAG.",
+    icon: Moon,
+    emoji: "☪️",
+  },
+  {
+    title: "Nexus",
+    desc: "Professional matchmaking platform for Dhaka's startup and tech community. Anti-recruitment, built for collaboration.",
+    icon: Users,
+    emoji: "🤝",
+  },
+]
 
 export default function ProductsPage() {
   return (
@@ -65,7 +104,7 @@ export default function ProductsPage() {
                     "Selection-based AI Explain with contextual answers",
                     "Flashcards generated from highlighted textbook content",
                     "Formula chart with AI and math explain support",
-                    "Topic/prompt-based infographic generation"
+                    "Topic/prompt-based infographic generation",
                   ].map((feature, i) => (
                     <li key={i} className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-[#8b38bc] flex-shrink-0" />
@@ -102,34 +141,58 @@ export default function ProductsPage() {
 
             {/* CHHAR Card */}
             <GlowCard className="flex flex-col overflow-hidden">
-              <div className="relative h-52 bg-gradient-to-br from-emerald-500/5 to-teal-500/15 flex items-center justify-center">
+              <div
+                className="relative h-52 flex items-center justify-center overflow-hidden"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(217,255,59,0.05) 0%, rgba(217,255,59,0.14) 100%)",
+                }}
+              >
                 <div className="device-phone scale-[0.38] origin-center">
-                  <div className="flex h-full items-center justify-center pt-8">
-                    <div className="text-center">
-                      <span className="block text-4xl mb-2">🏷️</span>
-                      <span className="text-xs font-bold tracking-widest text-muted-foreground uppercase">CHHAR <span className="font-normal normal-case tracking-normal">- ছাড়</span></span>
-                    </div>
+                  <div className="h-full w-full overflow-hidden" style={{ backgroundColor: "#08090A" }}>
+                    <img
+                      src="/products/chhar/consumer/ss-01.png"
+                      alt="CHHAR app — editorial home feed"
+                      className="h-full w-full object-cover object-top block"
+                    />
                   </div>
                 </div>
               </div>
               <div className="flex flex-1 flex-col p-8">
                 <div className="mb-3">
-                  <span className="inline-flex items-center rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-xs font-medium text-emerald-600 dark:text-emerald-400">
-                    Lifestyle
+                  <span
+                    className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium"
+                    style={{ backgroundColor: "rgba(217,255,59,0.1)", color: "#D9FF3B" }}
+                  >
+                    Deals Marketplace
                   </span>
                 </div>
-                <h2 className="mb-3 text-2xl font-semibold text-foreground">CHHAR <span className="font-medium">- ছাড়</span></h2>
+                <div className="mb-4 flex items-center gap-2">
+                  <img
+                    src="/products/chhar/chhar_logo.svg"
+                    alt="CHHAR logo"
+                    className="h-6 w-auto"
+                  />
+                  <span className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">Official app</span>
+                </div>
+                <h2 className="mb-3 text-2xl font-semibold text-foreground">
+                  CHHAR <span className="font-medium">— ছাড়</span>
+                </h2>
                 <p className="mb-6 text-sm text-muted-foreground leading-relaxed">
-                  Your ultimate companion for finding the best deals and promotions in Dhaka. CHHAR uses location-based technology to alert you about discounts nearby, helping you save money on dining, shopping, and services you love.
+                  Two-sided deals marketplace live in Dhaka, Chittagong, Rajshahi, and Khulna. Consumers find flash deals nearby. Vendors reach active deal-seekers.
                 </p>
                 <ul className="mb-8 space-y-2.5 text-sm text-muted-foreground">
                   {[
-                    "Real-time Location Alerts",
-                    "Categorized Deal Finder",
-                    "Exclusive Partner Offers"
+                    "Live in 4 cities",
+                    "Flash deals with countdowns",
+                    "Vendor analytics dashboard",
+                    "4 redemption types",
                   ].map((feature, i) => (
                     <li key={i} className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
+                      <span
+                        className="h-1.5 w-1.5 rounded-full flex-shrink-0"
+                        style={{ backgroundColor: "#D9FF3B" }}
+                      />
                       {feature}
                     </li>
                   ))}
@@ -137,7 +200,8 @@ export default function ProductsPage() {
                 <div className="mt-auto pt-4 flex flex-wrap gap-3">
                   <Button
                     asChild
-                    className="btn-get-app group/btn bg-[#4C8E4F] text-white hover:bg-[#417a43] hover:shadow-[0_0_32px_rgba(76,142,79,0.5)]"
+                    className="btn-get-app group/btn font-bold text-[#08090A] hover:opacity-90 hover:shadow-[0_0_32px_rgba(217,255,59,0.4)]"
+                    style={{ backgroundColor: "#D9FF3B" }}
                   >
                     <a
                       href={CHHAR_PLAY_STORE_URL}
@@ -151,7 +215,11 @@ export default function ProductsPage() {
                   <Button
                     asChild
                     variant="outline"
-                    className="group/btn border-[#4C8E4F]/40 bg-transparent text-emerald-400 hover:bg-[#4C8E4F]/15 hover:border-[#4C8E4F]/60 transition-all duration-200"
+                    className="group/btn bg-transparent hover:scale-[1.02] transition-all duration-200"
+                    style={{
+                      borderColor: "rgba(217,255,59,0.35)",
+                      color: "#D9FF3B",
+                    }}
                   >
                     <Link href="/products/chhar" className="flex items-center gap-2">
                       View Details <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
@@ -169,30 +237,11 @@ export default function ProductsPage() {
         <Container>
           <SectionHeading
             title="Upcoming Products"
-            subtitle="Three new AI products currently in planning and development."
+            subtitle="Six AI products in planning and development."
             className="mb-10"
           />
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {[
-              {
-                title: "Dhara",
-                desc: "Trusted booking service specifically designed for NGO facilities.",
-                icon: Handshake,
-                image: "/products/Dhara_placeholder.jpeg",
-              },
-              {
-                title: "Study Abroad Assistant",
-                desc: "AI + curated university, scholarship, and visa processing assistant for Bangladeshi students.",
-                icon: GraduationCap,
-                image: "/products/study-abroad-placeholder.jpeg",
-              },
-              {
-                title: "Travel Partner",
-                desc: "AI-powered domestic and international travel planning assistant for Bangladeshi travelers.",
-                icon: Plane,
-                image: "/products/travel-partner-placeholder.jpeg",
-              },
-            ].map((product, i) => (
+            {UPCOMING.map((product, i) => (
               <GlowCard key={i} className="p-5">
                 <div className="mb-3 flex items-center justify-between">
                   <span className="inline-flex items-center rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-medium text-primary">
@@ -200,12 +249,17 @@ export default function ProductsPage() {
                   </span>
                   <product.icon className="h-4 w-4 text-primary" />
                 </div>
-                <div className="mb-3 h-16 overflow-hidden rounded-lg border border-border bg-muted/40">
-                  <img
-                    src={product.image}
-                    alt={`${product.title} placeholder visual`}
-                    className="h-full w-full object-cover"
-                  />
+                {/* Emoji placeholder — no broken image tags */}
+                <div
+                  className="mb-3 flex h-20 items-center justify-center overflow-hidden rounded-xl"
+                  style={{
+                    backgroundColor: "rgba(255,255,255,0.025)",
+                    border: "1px solid rgba(255,255,255,0.06)",
+                  }}
+                >
+                  <span className="text-4xl leading-none" role="img" aria-label={product.title}>
+                    {product.emoji}
+                  </span>
                 </div>
                 <h3 className="mb-2 text-base font-semibold text-foreground">{product.title}</h3>
                 <p className="text-xs leading-relaxed text-muted-foreground">{product.desc}</p>
