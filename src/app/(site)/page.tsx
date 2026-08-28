@@ -14,7 +14,7 @@ import { GridPattern } from "@/components/ui/GridPattern"
 import { GlowCard } from "@/components/ui/GlowCard"
 import { FounderCard } from "@/components/site/FounderCard"
 import { TEAM_MEMBERS } from "@/content/team"
-import { PARTNERS } from "@/content/partners"
+import { PartnerStrip } from "@/components/site/PartnerStrip"
 
 const BG_SLIDES = [
   "/products/dikkha/slides/slide1.png",
@@ -455,46 +455,6 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ── Stats ticker ── */}
-      <div className="relative overflow-hidden border-y border-white/[0.06]">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_100%_at_50%_50%,rgba(109,40,217,0.07),transparent)] pointer-events-none" />
-        <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
-          <div
-            className="flex items-center gap-0 shrink-0 animate-marquee-left"
-            style={{ animationDuration: "38s" }}
-          >
-            {[
-              { stat: "16+", label: "NCTB Textbooks" },
-              { stat: "8+", label: "Subjects Covered" },
-              { stat: "AI", label: "Answers in Bangla" },
-              { stat: "SSC 2026", label: "Exam Suggestions" },
-              { stat: "Flashcards", label: "From Any Text" },
-              { stat: "Formula Sheet", label: "All Science Subjects" },
-              { stat: "AI Infographics", label: "Visual Learning" },
-              { stat: "Dhaka", label: "Location-Based Deals" },
-              { stat: "Hot Deals", label: "Near You Now" },
-              { stat: "16+", label: "NCTB Textbooks" },
-              { stat: "8+", label: "Subjects Covered" },
-              { stat: "AI", label: "Answers in Bangla" },
-              { stat: "SSC 2026", label: "Exam Suggestions" },
-              { stat: "Flashcards", label: "From Any Text" },
-              { stat: "Formula Sheet", label: "All Science Subjects" },
-              { stat: "AI Infographics", label: "Visual Learning" },
-              { stat: "Dhaka", label: "Location-Based Deals" },
-              { stat: "Hot Deals", label: "Near You Now" },
-            ].map((item, i) => (
-              <div key={i} className="flex items-center shrink-0">
-                <div className="flex items-baseline gap-2 px-7 py-4">
-                  <span className="text-sm font-black text-foreground tracking-tight">{item.stat}</span>
-                  <span className="text-sm text-muted-foreground">{item.label}</span>
-                </div>
-                <span className="text-[#8b38bc]/35 text-xs select-none">◆</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* ── Partners ── */}
       <section className="border-t border-border py-20 md:py-24">
         <Container>
@@ -515,22 +475,8 @@ export default function HomePage() {
             </div>
           </AnimateOnScroll>
 
-          <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-            {PARTNERS.map((p) => (
-              <a
-                key={p.id}
-                href={p.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-center rounded-xl border border-border bg-card/40 p-6 transition-colors hover:border-foreground/25"
-              >
-                <img
-                  src={p.logo}
-                  alt={p.name}
-                  className="max-h-12 max-w-[80%] object-contain opacity-80 transition-opacity duration-300 group-hover:opacity-100"
-                />
-              </a>
-            ))}
+          <div className="mt-14">
+            <PartnerStrip />
           </div>
         </Container>
       </section>

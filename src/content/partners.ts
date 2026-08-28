@@ -15,6 +15,8 @@ export interface Partner {
   tags: string[]
   /** Accent hex used for the card border glow */
   accent: string
+  /** How the logo sits in the circular avatar */
+  fit: "contain" | "cover"
 }
 
 export const PARTNERS: Partner[] = [
@@ -29,6 +31,7 @@ export const PARTNERS: Partner[] = [
       "Apon Venture Lab is an AI-native venture studio that co-builds startups with domain-expert founders. NeuronFish is its product engineering team, taking ventures from first commit to a working product.",
     tags: ["MVP engineering", "AI stack", "Product"],
     accent: "#8b5cf6",
+    fit: "contain",
   },
   {
     id: "aponbazaar",
@@ -41,6 +44,7 @@ export const PARTNERS: Partner[] = [
       "Apon Bazaar gives Bangladesh's industrial workforce advance salary, near zero-interest credit, and discounted groceries. NeuronFish builds its internal agentic AI systems, including an agentic ERP.",
     tags: ["Agentic ERP", "Automation", "Internal AI"],
     accent: "#3b82f6",
+    fit: "contain",
   },
   {
     id: "khulshi-mart",
@@ -53,6 +57,7 @@ export const PARTNERS: Partner[] = [
       "Khulshi Mart is a Chattogram supershop chain with its own food-testing lab, e-commerce, and home delivery. NeuronFish builds its internal agentic AI systems, including an agentic ERP.",
     tags: ["Agentic ERP", "Automation", "Internal AI"],
     accent: "#10b981",
+    fit: "contain",
   },
   {
     id: "ieltsly",
@@ -65,6 +70,7 @@ export const PARTNERS: Partner[] = [
       "IELTSly is an AI IELTS preparation platform with a voice-based speaking partner, automated writing evaluation, and adaptive study plans. NeuronFish builds the agentic AI systems behind it.",
     tags: ["Voice AI", "RAG", "Evaluation"],
     accent: "#ef4444",
+    fit: "cover",
   },
   {
     id: "reachsavvy",
@@ -77,5 +83,6 @@ export const PARTNERS: Partner[] = [
       "ReachSavvy is a digital growth agency running paid media, SEO, and content for brands across several markets. NeuronFish builds its internal agentic AI software for marketing operations.",
     tags: ["Automation", "Internal AI", "Agents"],
     accent: "#a855f7",
+    fit: "cover",
   },
 ]

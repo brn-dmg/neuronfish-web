@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container"
 import { GridPattern } from "@/components/ui/GridPattern"
 import { GlowCard } from "@/components/ui/GlowCard"
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll"
+import { PartnerStrip } from "@/components/site/PartnerStrip"
 import { PARTNERS } from "@/content/partners"
 
 export const metadata = {
@@ -47,23 +48,9 @@ export default function WorkPage() {
             </p>
           </div>
 
-          {/* Logo wall */}
-          <div className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-            {PARTNERS.map((p) => (
-              <a
-                key={p.id}
-                href={p.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-center rounded-xl border border-border bg-card/40 p-6 transition-colors hover:border-foreground/25"
-              >
-                <img
-                  src={p.logo}
-                  alt={p.name}
-                  className="max-h-14 max-w-[80%] object-contain opacity-80 transition-opacity duration-300 group-hover:opacity-100"
-                />
-              </a>
-            ))}
+          {/* Logo strip */}
+          <div className="mt-14">
+            <PartnerStrip />
           </div>
         </Container>
       </section>
@@ -78,10 +65,14 @@ export default function WorkPage() {
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex items-center gap-3">
                       <span
-                        className="flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-background p-2"
-                        style={{ boxShadow: `0 0 0 1px ${p.accent}22` }}
+                        className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full border bg-card"
+                        style={{ borderColor: `${p.accent}55` }}
                       >
-                        <img src={p.logo} alt={p.name} className="max-h-8 w-auto" />
+                        {p.fit === "cover" ? (
+                          <img src={p.logo} alt={p.name} className="h-full w-full object-cover" />
+                        ) : (
+                          <img src={p.logo} alt={p.name} className="max-h-7 max-w-[70%] object-contain" />
+                        )}
                       </span>
                       <div>
                         <h2 className="text-lg font-semibold text-foreground">{p.name}</h2>
