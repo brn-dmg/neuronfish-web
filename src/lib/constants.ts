@@ -28,6 +28,18 @@ export const COMPANY = {
   },
   /** One-line address for inline display */
   addressLine: "131 Continental Dr Ste 305, Newark, DE 19713, USA",
-  teamNote: "Product & engineering team in Dhaka, Bangladesh.",
+  teamNote: "Product and engineering team in Dhaka, Bangladesh.",
   url: "https://www.neuronfish.dev",
+  tagline: "A technology company building enterprise AI systems and next-gen apps.",
+  description:
+    "NeuronFish, Inc. is a technology company. We design and build enterprise AI systems and modern applications, both as our own products and as the technology partner for the companies we work with.",
+  knowsAbout: [
+    "Enterprise AI",
+    "AI agents",
+    "Agentic AI systems",
+    "Retrieval-augmented generation",
+    "Agentic ERP",
+    "Mobile and web application development",
+    "Product engineering",
+  ],
 } as const;

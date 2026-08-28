@@ -27,7 +27,7 @@ function ContactForm() {
     const subject = String(data.get("subject") || "")
     const message = String(data.get("message") || "")
 
-    const body = `${message}\n\n—\nFrom: ${name} <${email}>`
+    const body = `${message}\n\nFrom: ${name} <${email}>`
     window.location.href = `mailto:${COMPANY.email}?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`
@@ -112,7 +112,7 @@ export default function ContactPage() {
       <Container className="relative">
         <SectionHeading
           title="Get in Touch"
-          subtitle="Have questions about DIKKHA or CHHAR? We'd love to hear from you."
+          subtitle="Questions about our products, or want to talk about a project? We'd love to hear from you."
           className="mb-12"
         />
 

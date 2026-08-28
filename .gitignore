@@ -40,3 +40,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .env*.local
+
+# Oversized raw partner logo sources (resized copies live in public/partners/)
+/public/ieltsly.png
+/public/reachsavvy.png
+/public/apon-logo-blue.png
+/public/avl-logo.png
+/public/khulshi-logo.png

@@ -12,9 +12,9 @@ import { SectionHeading } from "@/components/ui/SectionHeading"
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from "@/components/ui/AnimateOnScroll"
 import { GridPattern } from "@/components/ui/GridPattern"
 import { GlowCard } from "@/components/ui/GlowCard"
-import { MadeInBangladesh } from "@/components/site/MadeInBangladesh"
 import { FounderCard } from "@/components/site/FounderCard"
 import { TEAM_MEMBERS } from "@/content/team"
+import { PARTNERS } from "@/content/partners"
 
 const BG_SLIDES = [
   "/products/dikkha/slides/slide1.png",
@@ -203,7 +203,7 @@ export default function HomePage() {
                 className="mb-6 inline-flex items-center rounded-full border border-white/20 bg-white/[0.06] px-4 py-1.5 text-sm text-zinc-300 backdrop-blur-sm"
               >
                 <span className="mr-2 h-2 w-2 rounded-full bg-emerald-400 animate-gentle-pulse" />
-                Innovating from Bangladesh
+                A technology company
               </motion.div>
 
               <motion.h1
@@ -212,9 +212,8 @@ export default function HomePage() {
                 transition={{ duration: 0.65, delay: 0.1 }}
                 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl leading-[1.06] mb-6"
               >
-                Building agentic{" "}
                 <span className="bg-gradient-to-r from-[#a78bfa] via-[#c4b5fd] to-[#7c3aed] bg-clip-text text-transparent">
-                  AI solutions
+                  Enterprise AI systems
                 </span>
                 {" "}&{" "}
                 <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
@@ -228,7 +227,7 @@ export default function HomePage() {
                 transition={{ duration: 0.65, delay: 0.2 }}
                 className="text-lg leading-relaxed text-zinc-300 mb-8 max-w-md"
               >
-                Creating powerful AI agents, smart applications, and innovative solutions tailored for Bangladesh. Experience the future with NeuronFish.
+                NeuronFish is a technology company. We design and build enterprise AI systems and modern applications, both as our own products and as the technology partner for the companies we work with.
               </motion.p>
 
               <motion.div
@@ -243,7 +242,7 @@ export default function HomePage() {
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <Link href="/contact">Contact Us</Link>
+                  <Link href="/work">See our work</Link>
                 </Button>
               </motion.div>
 
@@ -260,7 +259,7 @@ export default function HomePage() {
                   <ArrowRight className="h-3 w-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
                 </Link>
                 <Link href="/products/chhar" className="group inline-flex items-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-semibold text-emerald-400 hover:border-emerald-500/55 hover:bg-emerald-500/18 transition-all duration-200">
-                  <span className="text-sm leading-none">🏷️</span>
+                  <img src="/products/chhar/chhar_logo.svg" className="h-4 w-4 rounded" alt="" />
                   CHHAR
                   <ArrowRight className="h-3 w-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
                 </Link>
@@ -298,7 +297,7 @@ export default function HomePage() {
                 {/* Front phone — Library, tilted left, floating */}
                 <img
                   src="/products/dikkha/slides/slide2.png"
-                  alt="Dikkha AI — subject library"
+                  alt="Dikkha AI subject library"
                   className="absolute left-2 top-10 w-[255px] rounded-3xl -rotate-[7deg] z-10 animate-float-slow"
                   style={{
                     boxShadow: "0 32px 80px rgba(0,0,0,0.65), 0 0 0 1px rgba(139,56,188,0.22), 0 0 60px rgba(120,40,200,0.15)",
@@ -337,7 +336,7 @@ export default function HomePage() {
           <AnimateOnScroll>
             <SectionHeading
               title="Our Products"
-              subtitle="Solutions designed to solve real problems for the Bangladeshi community."
+              subtitle="The apps we build and run ourselves, from first commit to production."
               className="mb-14"
             />
           </AnimateOnScroll>
@@ -424,7 +423,7 @@ export default function HomePage() {
                   <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-[#D9FF3B]/10 to-transparent pointer-events-none" />
                   {/* Product badge */}
                   <div className="absolute top-3 left-3 flex items-center gap-2 rounded-xl border border-[#D9FF3B]/30 bg-background/85 px-2.5 py-1.5 backdrop-blur-sm">
-                    <span className="text-sm leading-none">🏷️</span>
+                    <img src="/products/chhar/chhar_logo.svg" className="h-3.5 w-3.5" alt="" />
                     <span className="text-xs font-bold text-[#D9FF3B]">CHHAR</span>
                   </div>
                 </div>
@@ -433,7 +432,7 @@ export default function HomePage() {
                     <span className="inline-flex items-center rounded-full bg-[#D9FF3B]/10 px-2.5 py-0.5 text-xs font-medium text-[#D9FF3B]">Deals</span>
                     <span className="inline-flex items-center rounded-full bg-[#D9FF3B]/10 px-2.5 py-0.5 text-xs font-medium text-[#D9FF3B]">4 Cities</span>
                   </div>
-                  <h3 className="text-2xl font-semibold tracking-tight text-foreground">CHHAR — ছাড়</h3>
+                  <h3 className="text-2xl font-semibold tracking-tight text-foreground">CHHAR (ছাড়)</h3>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                     Two-sided deals marketplace live in Dhaka, Chittagong, Rajshahi &amp; Khulna. Flash deals for consumers, listings for businesses.
                   </p>
@@ -496,13 +495,53 @@ export default function HomePage() {
         </div>
       </div>
 
+      {/* ── Partners ── */}
+      <section className="border-t border-border py-20 md:py-24">
+        <Container>
+          <AnimateOnScroll>
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Partners</h2>
+                <p className="mt-3 max-w-md text-lg text-muted-foreground">
+                  We run the technology for a portfolio of companies.
+                </p>
+              </div>
+              <Button variant="outline" asChild className="group shrink-0">
+                <Link href="/work" className="flex items-center gap-2">
+                  See our work
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
+            </div>
+          </AnimateOnScroll>
+
+          <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+            {PARTNERS.map((p) => (
+              <a
+                key={p.id}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-center rounded-xl border border-border bg-card/40 p-6 transition-colors hover:border-foreground/25"
+              >
+                <img
+                  src={p.logo}
+                  alt={p.name}
+                  className="max-h-12 max-w-[80%] object-contain opacity-80 transition-opacity duration-300 group-hover:opacity-100"
+                />
+              </a>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       {/* ── Why NeuronFish ── */}
       <section className="py-20 md:py-28">
         <Container>
           <AnimateOnScroll>
             <SectionHeading
               title="Why NeuronFish?"
-              subtitle="We combine cutting-edge AI with deep local understanding."
+              subtitle="An engineering team that combines applied AI with a deep understanding of the people we build for."
               className="mb-14"
             />
           </AnimateOnScroll>
@@ -524,8 +563,8 @@ export default function HomePage() {
               },
               {
                 icon: MapPin,
-                title: "Local Focus",
-                desc: "Built for the context and needs of Bangladesh.",
+                title: "Context First",
+                desc: "Built around the real context and needs of the people who use it.",
                 orb1: "bg-amber-500/30",
                 orb2: "bg-orange-400/20",
                 iconColor: "text-amber-300",
@@ -604,35 +643,29 @@ export default function HomePage() {
       {/* ── Our Approach ── */}
       <section className="border-t border-border py-20 md:py-28">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <AnimateOnScroll>
-              <div>
-                <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl mb-6">
-                  Building AI Responsibly
-                </h2>
-                <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                  At NeuronFish, we believe technology should serve people, not the other way around. Our approach is grounded in:
-                </p>
-                <ul className="space-y-4">
-                  {[
-                    "Transparency in how our AI models work",
-                    "Inclusivity for diverse user groups",
-                    "Continuous ethical review of our products",
-                    "Data protection as a fundamental right",
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-foreground">
-                      <span className="h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                      <span className="text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </AnimateOnScroll>
-
-            <AnimateOnScroll delay={150}>
-              <MadeInBangladesh />
-            </AnimateOnScroll>
-          </div>
+          <AnimateOnScroll>
+            <div className="mx-auto max-w-2xl">
+              <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl mb-6">
+                Building technology responsibly
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                We believe technology should serve people, not the other way around. Our work is grounded in:
+              </p>
+              <ul className="grid gap-4 sm:grid-cols-2">
+                {[
+                  "Transparency in how our systems work",
+                  "Inclusivity for diverse user groups",
+                  "Continuous review of what we ship",
+                  "Data protection as a fundamental right",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-foreground">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
+                    <span className="text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </AnimateOnScroll>
         </Container>
       </section>
 
@@ -708,14 +741,19 @@ export default function HomePage() {
               <GridPattern className="opacity-[0.06] fill-white" />
               <div className="relative">
                 <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-white mb-4">
-                  Ready to transform your experience?
+                  Let&apos;s build something
                 </h2>
                 <p className="text-lg text-zinc-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-                  Whether you are a student looking to ace your exams or a shopper hunting for the best deals, we have something for you.
+                  Try one of our products, or talk to us about the technology your company needs.
                 </p>
-                <Button size="lg" variant="glow" asChild>
-                  <Link href="/contact">Get in Touch</Link>
-                </Button>
+                <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
+                  <Button size="lg" variant="glow" asChild>
+                    <Link href="/products">Explore Products</Link>
+                  </Button>
+                  <Button size="lg" variant="outline" asChild>
+                    <Link href="/contact?subject=Partnership">Start a conversation</Link>
+                  </Button>
+                </div>
               </div>
             </div>
           </AnimateOnScroll>

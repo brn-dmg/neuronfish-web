@@ -90,7 +90,7 @@ export function ChatInput({
         </button>
       </div>
       <p className="mt-1.5 text-center text-[10px] text-[#374151]">
-        Pluto may make mistakes — verify important info.
+        Pluto may make mistakes. Verify important info.
       </p>
     </div>
   )

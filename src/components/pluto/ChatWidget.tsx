@@ -176,12 +176,11 @@ export function ChatWidget() {
                 <span className="bg-gradient-to-r from-cyan-300 to-sky-300 bg-clip-text text-transparent">
                   Hi! I&apos;m Pluto
                 </span>
-                <span className="ml-1">👋</span>
               </p>
               <p className="mt-1 text-[12px] text-[#93c5d8] leading-snug">
-                Your AI assistant —
+                Your NeuronFish assistant.
                 <br />
-                <span className="font-medium text-white/80">let&apos;s talk!</span>
+                <span className="font-medium text-white/80">Let&apos;s talk!</span>
               </p>
 
               {/* Right-pointing tail */}

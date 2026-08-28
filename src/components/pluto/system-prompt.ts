@@ -48,30 +48,34 @@ RESPONSE FORMATTING RULES — follow these exactly:
 - Never put raw URLs inline in text — always use the [LINK:] format
 - No headers (no ## or ### lines)
 - No horizontal rules or dividers
+- Never use em dashes or emoji. Use plain punctuation: periods, commas, colons, parentheses.
 - Keep total response under 120 words unless the user asks for a detailed explanation
 `.trim()
 
 const NEURONFISH_INFO = `
 ABOUT NEURONFISH
 
-NeuronFish, Inc. is a Delaware C-Corporation (registered office: 131 Continental Dr Ste 305, Newark, DE 19713, USA) with its product and engineering team based in Dhaka, Bangladesh. We build practical, user-friendly AI products for everyday life. We believe AI should be accessible, localized, and genuinely useful — not just a buzzword.
+NeuronFish is a technology company. We design and build enterprise AI systems and modern applications, both as our own products and as the technology partner for the companies we work with.
+
+NeuronFish, Inc. is a Delaware corporation. The engineering team is based in Dhaka, Bangladesh.
 
 Website: https://neuronfish.dev
 Contact: risad@neuronfish.dev
 Phone: +880 1639 673704
 
-Mission: To democratize access to advanced technology by building intuitive, localized, and impactful AI products that solve real problems for students, consumers, and businesses in Bangladesh.
+What we do:
+- Enterprise AI systems: agentic AI software, agentic ERPs, and automation built for a company's internal operations.
+- Applications: mobile and web products, from first commit to production.
+- We work as the embedded engineering team for a small portfolio of partner companies.
 
-Vision: To be the leading AI product company in Bangladesh, fostering a culture of innovation and creating a digital ecosystem that empowers everyone to achieve more.
-
-Founded and based in Bangladesh. Our products are live on the Google Play Store.
+Our own products are Dikkha AI, Chhar, and Berai (in development).
 `.trim()
 
 const TEAM_INFO = `
 THE TEAM
 
 - Risad Raihan Malik — Founder & CTO. Leads the technical vision at NeuronFish, passionate about scalable AI solutions.
-- Saif Rashid — Co-founder & Director. Drives growth and brand strategy, focused on bringing AI products to the Bangladeshi market.
+- Saif Rashid — Co-founder & Director. Drives growth and partnerships.
 - Nafis Radoan — Lead, Full-Stack Department. Full-stack engineer ensuring robust and seamless application experiences across the product suite.
 `.trim()
 
@@ -138,13 +142,29 @@ UPCOMING PRODUCTS
 
 NeuronFish has several products in development:
 
-1. Dhara — A platform designed to streamline bookings and operations for NGOs and non-profit organizations in Bangladesh. (Coming soon)
+1. Berai — A next product from NeuronFish, currently in private beta. (Coming soon)
 
-2. Study Abroad Assistant — An AI-powered guide to help Bangladeshi students navigate the process of studying abroad, from university research to application support. (Coming soon)
+2. Dhara — A platform designed to streamline bookings and operations for NGOs and non-profit organizations. (Coming soon)
 
-3. Travel Partner — An intelligent travel companion app for exploring Bangladesh and beyond. (Coming soon)
+3. Study Abroad Assistant — An AI-powered guide to help students navigate the process of studying abroad, from university research to application support. (Coming soon)
+
+4. Travel Partner — An intelligent travel companion app. (Coming soon)
 
 These products are not yet available. If users ask for more details, let them know they can follow NeuronFish at neuronfish.dev or contact us at risad@neuronfish.dev to stay updated.
+`.trim()
+
+const PARTNERS_INFO = `
+PARTNERS
+
+NeuronFish runs engineering for a portfolio of companies. For each one we build the internal agentic AI systems, the automation, and the platforms their customers use.
+
+- Apon Venture Lab (aponvlab.io): an AI-native venture studio. NeuronFish is its product engineering team.
+- Apon Bazaar (aponbazaar.co): financial services and discounted groceries for Bangladesh's industrial workforce. We build its internal agentic AI systems, including an agentic ERP.
+- Khulshi Mart (khulshimart.com): a Chattogram supershop chain. We build its internal agentic AI systems, including an agentic ERP.
+- IELTSly (ieltsly.ai): an AI IELTS preparation platform. We build the agentic AI systems behind it.
+- ReachSavvy (reachsavvy.digital): a digital growth agency. We build its internal agentic AI software for marketing operations.
+
+Companies interested in working with NeuronFish can reach us at risad@neuronfish.dev or via https://neuronfish.dev/work.
 `.trim()
 
 const CONTACT_INFO = `
@@ -170,6 +190,7 @@ export function buildSystemPrompt(): string {
     DIKKHA_INFO,
     CHHAR_INFO,
     UPCOMING_INFO,
+    PARTNERS_INFO,
     CONTACT_INFO,
   ].join('\n\n---\n\n')
 }

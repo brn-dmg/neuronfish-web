@@ -1,0 +1,32 @@
+# NeuronFish
+
+> NeuronFish, Inc. is a technology company. We design and build enterprise AI systems and modern applications, both as our own products and as the technology partner for the companies we work with.
+
+NeuronFish, Inc. is incorporated in Delaware, United States. The engineering team is based in Dhaka, Bangladesh.
+
+## What we do
+
+- Enterprise AI systems: agentic AI software, agentic ERPs, retrieval-augmented systems, and automation built for a company's internal operations.
+- Applications: mobile and web products, from first commit to production.
+- We work as the embedded engineering team for a small portfolio of partner companies.
+
+## Our products
+
+- Dikkha AI: AI study assistant for Class 9 and 10 students on the NCTB curriculum. Live on Google Play (com.dikkhaai.app).
+- Chhar: location-based deals and discounts platform. Live on Google Play (dev.neuronfish.chhar).
+- Berai: in development.
+
+## Partners
+
+- Apon Venture Lab (aponvlab.io): AI-native venture studio. NeuronFish is its product engineering team.
+- Apon Bazaar (aponbazaar.co): financial services and retail for Bangladesh's industrial workforce. Internal agentic AI systems, including an agentic ERP.
+- Khulshi Mart (khulshimart.com): Chattogram supershop chain. Internal agentic AI systems, including an agentic ERP.
+- IELTSly (ieltsly.ai): AI IELTS preparation platform. The agentic AI systems behind the product.
+- ReachSavvy (reachsavvy.digital): digital growth agency. Internal agentic AI software for marketing operations.
+
+## Contact
+
+- Email: risad@neuronfish.dev
+- Phone: +880 1639 673704
+- Website: https://www.neuronfish.dev
+- Work: https://www.neuronfish.dev/work

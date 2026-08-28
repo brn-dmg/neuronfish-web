@@ -6,12 +6,13 @@ import { SectionHeading } from "@/components/ui/SectionHeading"
 import { TeamCard } from "@/components/site/TeamCard"
 import { GlowCard } from "@/components/ui/GlowCard"
 import { GridPattern } from "@/components/ui/GridPattern"
+import { MadeInBangladesh } from "@/components/site/MadeInBangladesh"
 import { TEAM_MEMBERS } from "@/content/team"
-import { COMPANY } from "@/lib/constants"
 
 export const metadata = {
   title: "About Us",
-  description: "Learn about NeuronFish's mission to build AI-powered products for Bangladesh. Meet our team.",
+  description:
+    "NeuronFish, Inc. is a technology company building enterprise AI systems and next-gen apps. Meet the team.",
 }
 
 export default function AboutPage() {
@@ -26,11 +27,13 @@ export default function AboutPage() {
               We are <span className="text-gradient">NeuronFish</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              A team of dreamers and builders dedicated to bringing the power of Artificial Intelligence to everyday life.
+              A technology company that designs and builds enterprise AI systems and
+              modern applications. We ship our own products, and we run the technology
+              for the companies we partner with.
             </p>
             <p className="mt-4 text-sm text-muted-foreground/80">
-              {COMPANY.legalName} is a {COMPANY.structure} headquartered at{" "}
-              {COMPANY.addressLine}. {COMPANY.teamNote}
+              NeuronFish, Inc. is a Delaware corporation. Our engineering team is based
+              in Dhaka, Bangladesh.
             </p>
           </div>
         </Container>
@@ -43,13 +46,16 @@ export default function AboutPage() {
             <GlowCard className="p-8">
               <h2 className="mb-3 text-xl font-semibold text-primary">Our Mission</h2>
               <p className="text-muted-foreground leading-relaxed">
-                To democratize access to advanced technology by building intuitive, localized, and impactful AI products that solve real problems for students, consumers, and businesses in Bangladesh.
+                To build software that puts advanced technology to practical use,
+                solving real problems for the people and companies who rely on it.
               </p>
             </GlowCard>
             <GlowCard className="p-8">
               <h2 className="mb-3 text-xl font-semibold text-foreground">Our Vision</h2>
               <p className="text-muted-foreground leading-relaxed">
-                To be the leading AI product company in Bangladesh, fostering a culture of innovation and creating a digital ecosystem that empowers everyone to achieve more.
+                To be the engineering team that ambitious companies trust with their
+                hardest technical problems, and to grow a portfolio of products used by
+                millions.
               </p>
             </GlowCard>
           </div>
@@ -67,11 +73,11 @@ export default function AboutPage() {
             </div>
             <div className="grid gap-8 md:grid-cols-5">
               {[
-                { year: "2025", title: "Inception", desc: "NeuronFish was founded with a small team and a big dream." },
-                { year: "January 2026", title: "Dikkha Pilot", desc: "Launched pilot of our AI tutor." },
-                { year: "February 2026", title: "Chhar Pilot", desc: "Started pilot testing deal finding in Dhaka." },
-                { year: "March 2026", title: "Dhara Pilot", desc: "Pilot launch of Dhara." },
-                { year: "Future", title: "Growth", desc: "Scaling our products to serve millions nationwide." }
+                { year: "2025", title: "Inception", desc: "NeuronFish was founded with a small team and a big goal." },
+                { year: "January 2026", title: "Dikkha Pilot", desc: "Launched the pilot of our AI study assistant." },
+                { year: "February 2026", title: "Chhar Pilot", desc: "Started pilot testing the deals platform." },
+                { year: "2026", title: "Partner Engineering", desc: "Became the technology team for a portfolio of companies." },
+                { year: "Future", title: "Growth", desc: "Scaling our products and partnerships to reach millions." },
               ].map((item, i) => (
                 <div key={i} className="relative text-center">
                   <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary ring-4 ring-background relative z-10">
@@ -87,12 +93,30 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      {/* Where we build */}
+      <section className="border-t border-border py-16 md:py-24">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+            <div>
+              <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+                Built in Dhaka
+              </h2>
+              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+                Our engineering team works from Dhaka, Bangladesh. It is where the
+                company started and where every product and partner system is built.
+              </p>
+            </div>
+            <MadeInBangladesh />
+          </div>
+        </Container>
+      </section>
+
       {/* Team */}
       <section className="border-t border-border bg-muted/30 py-16 md:py-24">
         <Container>
           <SectionHeading
             title="Meet the Team"
-            subtitle="The passionate individuals driving our innovation."
+            subtitle="The people building it."
             className="mb-12"
           />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -108,9 +132,10 @@ export default function AboutPage() {
         <Container>
           <div className="grid gap-6 md:grid-cols-2">
             <GlowCard className="flex flex-col items-center justify-center border-dashed p-8 text-center">
-              <h3 className="mb-2 text-xl font-semibold text-foreground">We&apos;re Hiring!</h3>
+              <h3 className="mb-2 text-xl font-semibold text-foreground">We&apos;re Hiring</h3>
               <p className="mb-6 text-sm text-muted-foreground leading-relaxed">
-                Passionate about AI and building for Bangladesh? We are always looking for talented engineers and designers.
+                Want to build products people love and systems companies depend on? We
+                are always looking for strong engineers and designers.
               </p>
               <Button variant="outline" asChild>
                 <Link href="/contact?subject=Careers">Contact Us</Link>
@@ -118,7 +143,7 @@ export default function AboutPage() {
             </GlowCard>
 
             <GlowCard className="flex flex-col items-center justify-center p-8 text-center">
-              <h3 className="mb-2 text-xl font-semibold text-foreground">Media & Press</h3>
+              <h3 className="mb-2 text-xl font-semibold text-foreground">Media &amp; Press</h3>
               <p className="mb-6 text-sm text-muted-foreground leading-relaxed">
                 Download our brand assets, logos, and official colors for media usage.
               </p>
