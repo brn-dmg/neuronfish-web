@@ -646,7 +646,7 @@ export default function HomePage() {
                   </span>
                 </h2>
                 <p className="mt-3 text-muted-foreground text-lg max-w-md">
-                  Who&apos;s behind all this? Just two guys who won&apos;t stop shipping.
+                  The people accountable for every product we ship and every company we build with.
                 </p>
               </div>
               <Button variant="outline" asChild className="group shrink-0">
