@@ -1,6 +1,6 @@
 # Terms & Conditions
 
-**Last updated: March 16, 2026**
+**Last updated: August 28, 2026**
 
 Welcome to Chhar ("we", "our", "us"). By accessing or using the Chhar mobile application ("App"), you agree to be bound by these Terms & Conditions ("Terms"). Please read them carefully before using the App.
 
@@ -134,11 +134,13 @@ We may revise these Terms at any time by updating this page. Your continued use 
 
 ## 16. Governing Law
 
-These Terms shall be governed by and construed in accordance with the laws of the People's Republic of Bangladesh. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts in Dhaka, Bangladesh.
+These Terms shall be governed by and construed in accordance with the laws of the State of Delaware, United States, without regard to its conflict-of-law rules. Nothing in this section deprives you of the protection of mandatory consumer-protection provisions of the law of your country of residence. Subject to the foregoing, any disputes arising under these Terms shall be subject to the jurisdiction of the state or federal courts located in Delaware, United States.
 
 ## 17. Contact Us
 
 If you have any questions about these Terms, please contact us at:
 
-- **Email:** aistartup70@gmail.com
-- **Address:** Dhaka, Bangladesh
+- **Provider:** NeuronFish, Inc. (a Delaware C-Corporation)
+- **Email:** risad@neuronfish.dev
+- **Registered Address:** 131 Continental Dr Ste 305, Newark, DE 19713, United States
+- **Team Location:** Dhaka, Bangladesh

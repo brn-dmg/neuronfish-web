@@ -876,11 +876,11 @@ export default function ChharPage() {
               <p className="mt-5 text-xs" style={{ color: "rgba(242,242,243,0.35)" }}>
                 Or email us at{" "}
                 <a
-                  href="mailto:support@neuronfish.dev"
+                  href="mailto:risad@neuronfish.dev"
                   className="underline hover:opacity-80"
                   style={{ color: "rgba(245,158,11,0.7)" }}
                 >
-                  support@neuronfish.dev
+                  risad@neuronfish.dev
                 </a>
               </p>
             </div>

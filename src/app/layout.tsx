@@ -3,6 +3,32 @@ import { Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { COMPANY } from "@/lib/constants";
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: COMPANY.legalName,
+  legalName: COMPANY.legalName,
+  url: COMPANY.url,
+  logo: `${COMPANY.url}/neuronfish-logo.jpeg`,
+  email: COMPANY.email,
+  telephone: COMPANY.phone,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: COMPANY.address.street,
+    addressLocality: COMPANY.address.city,
+    addressRegion: COMPANY.address.state,
+    postalCode: COMPANY.address.zip,
+    addressCountry: COMPANY.address.countryCode,
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer support",
+    email: COMPANY.email,
+    telephone: COMPANY.phone,
+  },
+};
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -20,7 +46,7 @@ export const metadata: Metadata = {
     template: "%s | NeuronFish",
     default: "NeuronFish - AI-powered products for everyday learning & savings",
   },
-  description: "Building AI-powered products for Bangladesh. Home of DIKKHA and CHHAR.",
+  description: "NeuronFish, Inc. builds AI-powered products for everyday learning and savings. Home of DIKKHA and CHHAR.",
   metadataBase: new URL("https://www.neuronfish.dev"),
   keywords: ["AI", "Bangladesh", "Education", "Savings", "DIKKHA", "CHHAR", "Dhaka", "Technology"],
   openGraph: {
@@ -28,7 +54,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.neuronfish.dev",
     siteName: "NeuronFish",
-    title: "NeuronFish - AI for Bangladesh",
+    title: "NeuronFish - AI-powered products for everyday learning & savings",
     description: "Innovating for everyday learning and savings with AI.",
     images: [
       {
@@ -42,7 +68,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "NeuronFish",
-    description: "AI-powered products for everyday learning & savings in Bangladesh.",
+    description: "AI-powered products for everyday learning & savings.",
     images: ["/og.png"],
   },
   icons: {
@@ -71,6 +97,10 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
         <Analytics />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
       </body>
     </html>
   );

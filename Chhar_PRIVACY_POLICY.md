@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Last updated: March 16, 2026**
+**Last updated: August 28, 2026**
 
 Chhar ("we", "our", "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you use the Chhar mobile application ("App").
 
@@ -109,7 +109,7 @@ You have the right to:
 - **Withdraw Consent:** Withdraw your consent for data processing at any time by contacting us or deleting your account.
 - **Data Portability:** Request your data in a structured, commonly used format.
 
-To exercise any of these rights, please contact us at aistartup70@gmail.com.
+To exercise any of these rights, please contact us at risad@neuronfish.dev.
 
 ## 9. Cookies and Analytics
 
@@ -131,8 +131,10 @@ We may update this Privacy Policy from time to time. We will notify you of any m
 
 If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:
 
-- **Email:** aistartup70@gmail.com
+- **Data Controller:** NeuronFish, Inc. (a Delaware C-Corporation)
+- **Email:** risad@neuronfish.dev
 - **Subject Line:** Privacy Policy Inquiry
-- **Address:** Dhaka, Bangladesh
+- **Registered Address:** 131 Continental Dr Ste 305, Newark, DE 19713, United States
+- **Team Location:** Dhaka, Bangladesh
 
 We will respond to your inquiry within 30 days.

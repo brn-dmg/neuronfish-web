@@ -7,6 +7,7 @@ import { TeamCard } from "@/components/site/TeamCard"
 import { GlowCard } from "@/components/ui/GlowCard"
 import { GridPattern } from "@/components/ui/GridPattern"
 import { TEAM_MEMBERS } from "@/content/team"
+import { COMPANY } from "@/lib/constants"
 
 export const metadata = {
   title: "About Us",
@@ -25,7 +26,11 @@ export default function AboutPage() {
               We are <span className="text-gradient">NeuronFish</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              A team of dreamers and builders dedicated to bringing the power of Artificial Intelligence to everyday life in Bangladesh.
+              A team of dreamers and builders dedicated to bringing the power of Artificial Intelligence to everyday life.
+            </p>
+            <p className="mt-4 text-sm text-muted-foreground/80">
+              {COMPANY.legalName} is a {COMPANY.structure} headquartered at{" "}
+              {COMPANY.addressLine}. {COMPANY.teamNote}
             </p>
           </div>
         </Container>

@@ -1,6 +1,6 @@
 # Terms and Conditions for Dikkha AI
 
-**Last Updated:** March 15, 2026
+**Last Updated:** August 28, 2026
 
 ---
 
@@ -202,8 +202,9 @@ You agree to indemnify and hold harmless Dikkha AI, its officers, directors, emp
 ## 13. Governing Law
 
 ### 13.1 Jurisdiction
-- These Terms are governed by the laws of Bangladesh
-- Any disputes shall be resolved in the courts of Dhaka, Bangladesh
+- These Terms are governed by and construed in accordance with the laws of the State of Delaware, United States, without regard to its conflict-of-law rules.
+- Nothing in this section deprives you of the protection of mandatory consumer-protection provisions of the law of your country of residence.
+- Subject to the above, any disputes shall be resolved in the state or federal courts located in Delaware, United States.
 
 ### 13.2 Dispute Resolution
 - We encourage you to contact us first to resolve any issues
@@ -225,9 +226,10 @@ You agree to indemnify and hold harmless Dikkha AI, its officers, directors, emp
 For questions or concerns about these Terms, please contact us:
 
 **App Name:** Dikkha AI  
-**Developer:** NeuronFish    
-**Email:** aistartup70@gmail.com   
-**Address:** Dhaka, Bangladesh
+**Developer:** NeuronFish, Inc. (a Delaware C-Corporation)  
+**Email:** risad@neuronfish.dev  
+**Registered Address:** 131 Continental Dr Ste 305, Newark, DE 19713, United States  
+**Team Location:** Dhaka, Bangladesh
 
 ---
 

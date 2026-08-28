@@ -41,7 +41,7 @@ export function ChatInput({
         <p className="text-xs text-[#9CA3AF]">
           Session limit reached.{' '}
           <a
-            href="mailto:support@neuronfish.dev"
+            href="mailto:risad@neuronfish.dev"
             className="text-blue-400 underline underline-offset-2"
           >
             Email us

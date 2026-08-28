@@ -1,6 +1,6 @@
 # Privacy Policy for Dikkha AI
 
-**Last Updated:** March 15, 2026
+**Last Updated:** August 28, 2026
 
 ---
 
@@ -246,9 +246,10 @@ You are advised to review this Privacy Policy periodically for any changes. Chan
 ## 11. Data Controller Information
 
 **App Name:** Dikkha AI  
-**Developer:** NeuronFish  
-**Contact Email:** aistartup70@gmail.com  
-**Address:** Dhaka, Bangladesh
+**Developer:** NeuronFish, Inc. (a Delaware C-Corporation)  
+**Contact Email:** risad@neuronfish.dev  
+**Registered Address:** 131 Continental Dr Ste 305, Newark, DE 19713, United States  
+**Team Location:** Dhaka, Bangladesh
 
 ---
 
@@ -256,7 +257,7 @@ You are advised to review this Privacy Policy periodically for any changes. Chan
 
 If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:
 
-**Email:** aistartup70@gmail.com  
+**Email:** risad@neuronfish.dev  
 **Subject Line:** Privacy Policy Inquiry
 
 We will respond to your inquiry within 30 days.

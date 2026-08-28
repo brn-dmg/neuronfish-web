@@ -70,7 +70,7 @@ src/
 
 ```
 RESEND_API_KEY=           # Email sending (stub — not fully active)
-CONTACT_TO_EMAIL=support@neuronfish.dev
+CONTACT_TO_EMAIL=risad@neuronfish.dev
 CONTACT_FROM_EMAIL=onboarding@resend.dev
 SITE_URL=http://localhost:3000
 ```

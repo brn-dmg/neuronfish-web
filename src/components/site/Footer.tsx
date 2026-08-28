@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Container } from "@/components/ui/Container"
+import { COMPANY } from "@/lib/constants"
 
 export function Footer() {
   return (
@@ -9,11 +10,22 @@ export function Footer() {
           <div className="space-y-3">
             <h3 className="text-lg font-extrabold tracking-tight text-foreground">NeuronFish</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Building the future of apps in Bangladesh.
+              Building AI-powered products for everyday learning and savings.
             </p>
-            <p className="text-xs text-muted-foreground/70">
-              Dhaka, Bangladesh
-            </p>
+            <address className="space-y-1 text-xs not-italic text-muted-foreground/70">
+              <p className="font-medium text-muted-foreground">{COMPANY.legalName}</p>
+              <p>{COMPANY.addressLine}</p>
+              <p>
+                <a href={`mailto:${COMPANY.email}`} className="transition-colors hover:text-foreground">
+                  {COMPANY.email}
+                </a>
+                {" · "}
+                <a href={`tel:${COMPANY.phone}`} className="transition-colors hover:text-foreground">
+                  {COMPANY.phoneDisplay}
+                </a>
+              </p>
+              <p>{COMPANY.teamNote}</p>
+            </address>
           </div>
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground">Products</h4>
@@ -82,7 +94,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-12 border-t border-border pt-8 text-center text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} NeuronFish. All rights reserved.
+          &copy; {new Date().getFullYear()} {COMPANY.legalName} All rights reserved.
         </div>
       </Container>
     </footer>
