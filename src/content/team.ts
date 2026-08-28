@@ -14,8 +14,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: "risad",
     name: "Risad Raihan Malik",
-    role: "Founder, CTO",
-    bio: "Passionate about building scalable AI solutions. Leading the technical vision at NeuronFish.",
+    role: "Founder & CEO",
+    bio: "Founder and CEO of NeuronFish. Leads the company and its technical direction.",
     initials: "RM",
     photoUrl: "/ami.jpeg",
     linkedin: "https://www.linkedin.com/in/risad-raihan-malik/",
@@ -24,8 +24,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: "saif",
     name: "Saif Rashid",
-    role: "Co-founder, Director",
-    bio: "Driving growth and partnerships across the company.",
+    role: "Co-founder & Managing Director",
+    bio: "Co-founder and Managing Director. Drives growth and partnerships across the company.",
     initials: "SR",
     photoUrl: "/saifbhai.jpeg",
     linkedin: "https://www.linkedin.com/in/saif-rashid/",

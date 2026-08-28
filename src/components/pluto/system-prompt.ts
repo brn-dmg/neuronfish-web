@@ -74,8 +74,8 @@ Our own products are Dikkha AI, Chhar, and Berai (in development).
 const TEAM_INFO = `
 THE TEAM
 
-- Risad Raihan Malik — Founder & CTO. Leads the technical vision at NeuronFish, passionate about scalable AI solutions.
-- Saif Rashid — Co-founder & Director. Drives growth and partnerships.
+- Risad Raihan Malik — Founder & CEO. Leads the company and its technical direction.
+- Saif Rashid — Co-founder & Managing Director. Drives growth and partnerships.
 - Nafis Radoan — Lead, Full-Stack Department. Full-stack engineer ensuring robust and seamless application experiences across the product suite.
 `.trim()
 
