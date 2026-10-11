@@ -2,7 +2,7 @@ import Link from "next/link"
 import { Github, Linkedin, Globe } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar"
 import { GlowCard } from "@/components/ui/GlowCard"
-import { TeamMember } from "@/content/team"
+import { isRealLink, TeamMember } from "@/content/team"
 
 interface TeamCardProps {
   member: TeamMember
@@ -26,7 +26,7 @@ export function TeamCard({ member }: TeamCardProps) {
       <div className="px-6 pb-6">
         <p className="mb-4 text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
         <div className="flex gap-3">
-          {member.linkedin && (
+          {isRealLink(member.linkedin) && (
             <Link
               href={member.linkedin}
               target="_blank"
@@ -37,7 +37,7 @@ export function TeamCard({ member }: TeamCardProps) {
               <Linkedin className="h-4 w-4" />
             </Link>
           )}
-          {member.github && (
+          {isRealLink(member.github) && (
             <Link
               href={member.github}
               target="_blank"
@@ -48,7 +48,7 @@ export function TeamCard({ member }: TeamCardProps) {
               <Github className="h-4 w-4" />
             </Link>
           )}
-          {member.website && (
+          {isRealLink(member.website) && (
             <Link
               href={member.website}
               target="_blank"

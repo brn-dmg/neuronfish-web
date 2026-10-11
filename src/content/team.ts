@@ -10,6 +10,9 @@ export interface TeamMember {
   initials: string
 }
 
+/** True only for a usable URL: not empty and not the "#" placeholder. */
+export const isRealLink = (url?: string): url is string => !!url && url.trim() !== "" && url.trim() !== "#"
+
 export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: "risad",

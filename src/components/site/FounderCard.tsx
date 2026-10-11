@@ -4,7 +4,7 @@ import { useRef, useState, useCallback } from "react"
 import Link from "next/link"
 import { motion, useSpring, useTransform } from "motion/react"
 import { Linkedin, Github, Globe } from "lucide-react"
-import { type TeamMember } from "@/content/team"
+import { isRealLink, type TeamMember } from "@/content/team"
 
 interface FounderCardProps {
   member: TeamMember
@@ -192,7 +192,7 @@ export function FounderCard({ member, index }: FounderCardProps) {
 
           {/* Social Links */}
           <div className="flex items-center gap-3">
-            {member.linkedin && (
+            {isRealLink(member.linkedin) && (
               <Link
                 href={member.linkedin}
                 target="_blank"
@@ -217,7 +217,7 @@ export function FounderCard({ member, index }: FounderCardProps) {
                 </motion.span>
               </Link>
             )}
-            {member.github && (
+            {isRealLink(member.github) && (
               <Link
                 href={member.github}
                 target="_blank"
@@ -242,7 +242,7 @@ export function FounderCard({ member, index }: FounderCardProps) {
                 </motion.span>
               </Link>
             )}
-            {member.website && (
+            {isRealLink(member.website) && (
               <Link
                 href={member.website}
                 target="_blank"

@@ -74,9 +74,9 @@ export default function AboutPage() {
             <div className="grid gap-8 md:grid-cols-3 lg:grid-cols-6">
               {[
                 { year: "2025", title: "Incubation", desc: "NeuronFish began as an incubated team and started building its first products." },
-                { year: "August 2026", title: "Registered", desc: "NeuronFish, Inc. registered in Delaware as a C corporation, formalizing the work begun in 2025." },
                 { year: "January 2026", title: "Dikkha Pilot", desc: "Launched the pilot of our AI study assistant." },
                 { year: "February 2026", title: "Chhar Pilot", desc: "Started pilot testing the deals platform." },
+                { year: "August 2026", title: "Registered", desc: "NeuronFish, Inc. registered in Delaware as a C corporation, formalizing the work begun in 2025." },
                 { year: "2026", title: "Partner Engineering", desc: "Became the technology team for a portfolio of companies." },
                 { year: "Future", title: "Growth", desc: "Scaling our products and partnerships to reach millions." },
               ].map((item, i) => (
