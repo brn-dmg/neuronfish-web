@@ -152,7 +152,7 @@ export default function ProductsPage() {
                   <div className="h-full w-full overflow-hidden" style={{ backgroundColor: "#08090A" }}>
                     <img
                       src="/products/chhar/consumer/ss-01.png"
-                      alt="CHHAR app — editorial home feed"
+                      alt="CHHAR app, editorial home feed"
                       className="h-full w-full object-cover object-top block"
                     />
                   </div>
@@ -176,7 +176,7 @@ export default function ProductsPage() {
                   <span className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">Official app</span>
                 </div>
                 <h2 className="mb-3 text-2xl font-semibold text-foreground">
-                  CHHAR <span className="font-medium">— ছাড়</span>
+                  CHHAR <span className="font-medium">(ছাড়)</span>
                 </h2>
                 <p className="mb-6 text-sm text-muted-foreground leading-relaxed">
                   Two-sided deals marketplace live in Dhaka, Chittagong, Rajshahi, and Khulna. Consumers find flash deals nearby. Vendors reach active deal-seekers.
@@ -249,7 +249,7 @@ export default function ProductsPage() {
                   </span>
                   <product.icon className="h-4 w-4 text-primary" />
                 </div>
-                {/* Emoji placeholder — no broken image tags */}
+                {/* Emoji placeholder - no broken image tags */}
                 <div
                   className="mb-3 flex h-20 items-center justify-center overflow-hidden rounded-xl"
                   style={{

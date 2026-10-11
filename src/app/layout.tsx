@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { COMPANY } from "@/lib/constants";
+import { NEURONFISH_SAME_AS } from "@/lib/social";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -17,6 +18,8 @@ const structuredData = {
       logo: `${COMPANY.url}/neuronfish-logo.jpeg`,
       email: COMPANY.email,
       telephone: COMPANY.phone,
+      foundingDate: COMPANY.foundingDate,
+      sameAs: NEURONFISH_SAME_AS,
       description: COMPANY.description,
       slogan: COMPANY.tagline,
       knowsAbout: [...COMPANY.knowsAbout],
@@ -51,7 +54,7 @@ const structuredData = {
           name: "What does NeuronFish do?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "NeuronFish, Inc. is a technology company that designs and builds enterprise AI systems and modern applications. It develops its own products, including Dikkha AI and Chhar, and works as the technology partner for companies such as Apon Venture Lab, Apon Bazaar, Khulshi Mart, IELTSly, and ReachSavvy.",
+            text: "NeuronFish, Inc. is a technology company that designs and builds enterprise AI systems and modern applications. It develops its own products, including Dikkha AI and Chhar, and works as the technology partner for companies such as Apon Venture Lab, Apon Bazaar, Khulshi Mart, IELTSly, ReachSavvy, and Berai.",
           },
         },
         {
@@ -75,7 +78,7 @@ const structuredData = {
           name: "What are NeuronFish's own products?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Dikkha AI, an AI study assistant for Class 9 and 10 students; Chhar, a location-based deals platform; and Berai, currently in development.",
+            text: "Dikkha AI, an AI study assistant for Class 9 and 10 students, and Chhar, a location-based deals platform.",
           },
         },
       ],

@@ -19,7 +19,7 @@ const SUGGESTED_PROMPTS_EMPTY = [
 ]
 
 const AVATAR_SRC = '/pluto-avatar.jpg'
-const FAB_SIZE = 74 // px — bigger for visibility
+const FAB_SIZE = 74 // px, bigger for visibility
 
 const BUBBLE_SHOW_MS = 5000   // visible for 5 seconds
 const BUBBLE_CYCLE_MS = 35000 // new appearance every 35s (30s hidden + 5s visible)
@@ -219,7 +219,7 @@ export function ChatWidget() {
               height: 'min(520px, calc(100dvh - 120px))',
             }}
           >
-            {/* Header — overflow-hidden + rounded-t-2xl here so the panel border-radius clips the header bg, not the avatar */}
+            {/* Header - overflow-hidden + rounded-t-2xl here so the panel border-radius clips the header bg, not the avatar */}
             <div className="flex shrink-0 items-center gap-3 overflow-hidden rounded-t-2xl border-b border-white/5 px-4 py-3.5">
               <div className="relative shrink-0">
                 <div className="h-9 w-9 overflow-hidden rounded-full ring-1 ring-white/10 bg-[#080e18]">
@@ -268,7 +268,7 @@ export function ChatWidget() {
         )}
       </AnimatePresence>
 
-      {/* ── FAB — swim up entrance + idle bob ───────────────── */}
+      {/* ── FAB - swim up entrance + idle bob ───────────────── */}
       {/*
         Two-layer approach:
         - Outer motion.div: one-shot entrance (slides up from below on mount)
@@ -286,7 +286,7 @@ export function ChatWidget() {
           onClick={isOpen ? closeChat : openChat}
           className="relative overflow-hidden rounded-full shadow-xl shadow-black/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
           style={{ width: FAB_SIZE, height: FAB_SIZE }}
-          /* Idle bob — pauses while panel is open */
+          /* Idle bob - pauses while panel is open */
           animate={isOpen ? { y: 0 } : { y: [0, -9, 0] }}
           transition={
             isOpen
@@ -296,7 +296,7 @@ export function ChatWidget() {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.88 }}
         >
-          {/* Fish avatar — always visible as the button face */}
+          {/* Fish avatar - always visible as the button face */}
           <img
             src={AVATAR_SRC}
             alt="Pluto"

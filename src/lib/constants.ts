@@ -16,8 +16,8 @@ export const COMPANY = {
   shortName: "NeuronFish",
   structure: "Delaware C-Corporation",
   email: "risad@neuronfish.dev",
-  phone: "+8801639673704",
-  phoneDisplay: "+880 1639 673704",
+  phone: "+8801639672704",
+  phoneDisplay: "+880 1639 672704",
   address: {
     street: "131 Continental Dr Ste 305",
     city: "Newark",
@@ -28,6 +28,15 @@ export const COMPANY = {
   },
   /** One-line address for inline display */
   addressLine: "131 Continental Dr Ste 305, Newark, DE 19713, USA",
+  dhakaOffice: {
+    street: "Flat 4B, House 8, Road 2B, Baridhara J Block",
+    city: "Dhaka",
+    country: "Bangladesh",
+  },
+  /** One-line Dhaka office address for inline display */
+  dhakaOfficeLine: "Flat 4B, House 8, Road 2B, Baridhara J Block, Dhaka, Bangladesh",
+  tradeLicense: "TRAD/DNCC/048461/2025",
+  foundingDate: "2026-08-12",
   teamNote: "Product and engineering team in Dhaka, Bangladesh.",
   url: "https://www.neuronfish.dev",
   tagline: "A technology company building enterprise AI systems and next-gen apps.",
@@ -43,3 +52,6 @@ export const COMPANY = {
     "Product engineering",
   ],
 } as const;
+
+/** WhatsApp number (international format, digits only) for CHHAR vendor onboarding. Same as the company phone. */
+export const CHHAR_WHATSAPP_NUMBER = "8801639672704"

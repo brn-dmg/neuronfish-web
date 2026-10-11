@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { Container } from "@/components/ui/Container"
 import { COMPANY } from "@/lib/constants"
+import { SOCIALS } from "@/lib/social"
+import { SocialLinks } from "@/components/site/SocialLinks"
 
 export function Footer() {
   return (
@@ -26,19 +28,27 @@ export function Footer() {
               </p>
               <p>{COMPANY.teamNote}</p>
             </address>
+            <address className="space-y-1 text-xs not-italic text-muted-foreground/70">
+              <p className="font-medium text-muted-foreground">Dhaka office</p>
+              <p>{COMPANY.dhakaOfficeLine}</p>
+              <p>Bangladesh Trade License: {COMPANY.tradeLicense}</p>
+            </address>
+            <SocialLinks links={SOCIALS.neuronfish} name="NeuronFish" className="pt-1" />
           </div>
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground">Products</h4>
             <ul className="space-y-2.5 text-sm text-muted-foreground">
-              <li>
+              <li className="space-y-1.5">
                 <Link href="/products/dikkha" className="transition-colors hover:text-foreground">
                   DIKKHA
                 </Link>
+                <SocialLinks links={SOCIALS.dikkha} name="Dikkha" />
               </li>
-              <li>
+              <li className="space-y-1.5">
                 <Link href="/products/chhar" className="transition-colors hover:text-foreground">
                   CHHAR
                 </Link>
+                <SocialLinks links={SOCIALS.chhar} name="CHHAR" />
               </li>
             </ul>
           </div>

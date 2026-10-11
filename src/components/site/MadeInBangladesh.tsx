@@ -66,7 +66,7 @@ export function MadeInBangladesh() {
       {/* Light sky background behind the Lottie */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#f0f4f1] via-[#e8ede9] to-[#dfe6e0]" />
 
-      {/* Lottie scene — fills the entire card */}
+      {/* Lottie scene - fills the entire card */}
       <div className="absolute inset-0">
         <Lottie
           animationData={sceneAnimation}
@@ -78,7 +78,7 @@ export function MadeInBangladesh() {
         />
       </div>
 
-      {/* Content — positioned in the upper sky area */}
+      {/* Content - positioned in the upper sky area */}
       <div className="relative z-10 flex flex-col items-center pt-6 md:pt-10 px-6">
         {/* Waving flag */}
         <motion.div
@@ -95,7 +95,7 @@ export function MadeInBangladesh() {
           />
         </motion.div>
 
-        {/* "Made in Bangladesh" — Playfair Display serif, dark text on daylight scene */}
+        {/* "Made in Bangladesh" - Playfair Display serif, dark text on daylight scene */}
         <motion.h3
           className="text-2xl md:text-3xl lg:text-4xl font-black italic tracking-tight min-h-[1.2em]"
           style={{

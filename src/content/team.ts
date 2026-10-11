@@ -40,4 +40,18 @@ export const TEAM_MEMBERS: TeamMember[] = [
     linkedin: "#",
     github: "#",
   },
+  {
+    id: "mrittika",
+    name: "Mrittika Roy",
+    role: "AI Engineering Team Lead",
+    bio: "Leads AI engineering, building the agentic and retrieval systems behind our products and partner platforms.",
+    initials: "MR",
+  },
+  {
+    id: "junaid",
+    name: "A K Junaid",
+    role: "AI-Native Developer",
+    bio: "AI-native developer shipping product features and partner systems with AI-assisted engineering workflows.",
+    initials: "AJ",
+  },
 ]

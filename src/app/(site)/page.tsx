@@ -13,6 +13,7 @@ import { AnimateOnScroll, StaggerContainer, StaggerItem } from "@/components/ui/
 import { GridPattern } from "@/components/ui/GridPattern"
 import { GlowCard } from "@/components/ui/GlowCard"
 import { FounderCard } from "@/components/site/FounderCard"
+import { TeamCard } from "@/components/site/TeamCard"
 import { TEAM_MEMBERS } from "@/content/team"
 import { PartnerStrip } from "@/components/site/PartnerStrip"
 
@@ -72,7 +73,7 @@ function WhyCard({ item }: { item: WhyCardItem; index: number }) {
         "--border-rgb": item.borderGlowRgb,
       } as React.CSSProperties}
     >
-      {/* Cursor-tracking spotlight — uses CSS custom props for 60fps tracking */}
+      {/* Cursor-tracking spotlight - uses CSS custom props for 60fps tracking */}
       <div
         className="why-card__spotlight absolute inset-0 pointer-events-none z-[1] opacity-0 transition-opacity duration-300"
         style={{ opacity: isHovered ? 1 : 0 }}
@@ -153,19 +154,19 @@ export default function HomePage() {
 
         {/* ── BG layer 1: rich mesh gradient ── */}
         <div className="absolute inset-0 -z-30 pointer-events-none">
-          {/* Primary violet bloom — right side where phones live */}
+          {/* Primary violet bloom - right side where phones live */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_75%_45%,rgba(120,40,200,0.26),transparent_60%)]" />
-          {/* Indigo spill — bottom left */}
+          {/* Indigo spill - bottom left */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_50%_at_-5%_85%,rgba(79,70,229,0.18),transparent_58%)]" />
-          {/* Teal whisper — top right */}
+          {/* Teal whisper - top right */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_35%_at_100%_5%,rgba(20,184,166,0.09),transparent_55%)]" />
-          {/* Warm amber accent — far left centre */}
+          {/* Warm amber accent - far left centre */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_35%_35%_at_0%_50%,rgba(251,146,60,0.05),transparent_55%)]" />
-          {/* Deep magenta core — centre */}
+          {/* Deep magenta core - centre */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_50%,rgba(168,85,247,0.06),transparent_60%)]" />
         </div>
 
-        {/* ── BG layer 2: ghost slide marquee — pure atmosphere ── */}
+        {/* ── BG layer 2: ghost slide marquee - pure atmosphere ── */}
         <div className="absolute inset-0 -z-20 overflow-hidden pointer-events-none opacity-[0.055]">
           <div className="absolute top-[5%] left-0 right-0 flex gap-5 animate-marquee-left-slow">
             {TEASER_SLIDES.map((s, i) => (
@@ -281,7 +282,7 @@ export default function HomePage() {
                 <div className="absolute top-0 right-4 w-44 h-44 rounded-full bg-indigo-500/18 blur-[65px] pointer-events-none" />
                 <div className="absolute bottom-0 left-4 w-36 h-36 rounded-full bg-fuchsia-500/15 blur-[55px] pointer-events-none" />
 
-                {/* Back phone — CHHAR app, tilted right */}
+                {/* Back phone - CHHAR app, tilted right */}
                 <div
                   className="absolute right-0 top-8 w-[195px] h-[390px] rounded-[30px] border border-white/10 overflow-hidden rotate-[9deg] opacity-80 z-0"
                   style={{ boxShadow: "0 24px 60px rgba(0,0,0,0.65)" }}
@@ -294,7 +295,7 @@ export default function HomePage() {
                   />
                 </div>
 
-                {/* Front phone — Library, tilted left, floating */}
+                {/* Front phone - Library, tilted left, floating */}
                 <img
                   src="/products/dikkha/slides/slide2.png"
                   alt="Dikkha AI subject library"
@@ -304,7 +305,7 @@ export default function HomePage() {
                   }}
                 />
 
-                {/* Fish jumping between phones — Lottie has built-in arc from right→left */}
+                {/* Fish jumping between phones - Lottie has built-in arc from right→left */}
                 <div
                   className="absolute z-20 pointer-events-none overflow-visible"
                   style={{
@@ -419,7 +420,7 @@ export default function HomePage() {
                   ))}
                   {/* Bottom fade */}
                   <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-card to-transparent pointer-events-none" />
-                  {/* Top tint — chartreuse brand accent */}
+                  {/* Top tint - chartreuse brand accent */}
                   <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-[#D9FF3B]/10 to-transparent pointer-events-none" />
                   {/* Product badge */}
                   <div className="absolute top-3 left-3 flex items-center gap-2 rounded-xl border border-[#D9FF3B]/30 bg-background/85 px-2.5 py-1.5 backdrop-blur-sm">
@@ -452,6 +453,13 @@ export default function HomePage() {
               </GlowCard>
             </AnimateOnScroll>
           </div>
+          <AnimateOnScroll delay={200}>
+            <p className="mt-10 text-center text-sm text-muted-foreground">
+              <span className="font-semibold text-foreground">Also building:</span>{" "}
+              Poshra, AI content for Bangladeshi online sellers, and a BCS exam-prep product.{" "}
+              <span className="rounded-full border border-border px-2 py-0.5 text-xs">Coming soon</span>
+            </p>
+          </AnimateOnScroll>
         </Container>
       </section>
 
@@ -674,6 +682,13 @@ export default function HomePage() {
               >
                 <FounderCard member={member} index={index} />
               </motion.div>
+            ))}
+          </div>
+
+          {/* Engineering team */}
+          <div className="mt-6 grid gap-6 md:mt-8 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {TEAM_MEMBERS.filter((m) => m.id !== "risad" && m.id !== "saif").map((member) => (
+              <TeamCard key={member.id} member={member} />
             ))}
           </div>
         </Container>

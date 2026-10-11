@@ -17,7 +17,7 @@ export function FounderCard({ member, index }: FounderCardProps) {
   const [spotX, setSpotX] = useState(50)
   const [spotY, setSpotY] = useState(50)
 
-  // Mouse position for 3D tilt — raw values
+  // Mouse position for 3D tilt - raw values
   const rawX = useSpring(0, { stiffness: 150, damping: 20 })
   const rawY = useSpring(0, { stiffness: 150, damping: 20 })
   const rotateX = useTransform(rawY, [-0.5, 0.5], [6, -6])
@@ -75,7 +75,7 @@ export function FounderCard({ member, index }: FounderCardProps) {
       {/* ── Dark layer (always visible base) ── */}
       <div className="relative rounded-2xl border border-white/[0.06] bg-[#0d1117]/80 backdrop-blur-sm overflow-hidden">
 
-        {/* Cream reveal layer — clips from mouse entry point outward */}
+        {/* Cream reveal layer - clips from mouse entry point outward */}
         <motion.div
           className="absolute inset-0 rounded-2xl z-10 pointer-events-none"
           animate={{

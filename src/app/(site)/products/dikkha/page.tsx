@@ -13,6 +13,8 @@ import {
   CheckCircle2,
 } from "lucide-react"
 import { DIKKHA_PLAY_STORE_URL } from "@/lib/constants"
+import { SOCIALS } from "@/lib/social"
+import { SocialLinks } from "@/components/site/SocialLinks"
 import { FAQAccordion } from "@/components/ui/FAQAccordion"
 import { Badge } from "@/components/ui/Badge"
 import { Button } from "@/components/ui/Button"
@@ -23,9 +25,9 @@ import { ScreenshotMarquee } from "@/components/dikkha/ScreenshotMarquee"
 import { VideoShowcase } from "@/components/dikkha/VideoShowcase"
 
 export const metadata = {
-  title: "Dikkha AI — AI Study Assistant for Class 9-10",
+  title: "Dikkha AI: AI Study Assistant for Class 9-10",
   description:
-    "Dikkha AI is the smartest study companion for Class 9-10 students in Bangladesh. Textbook-based AI explanations, flashcards, formula sheet, SSC suggestions, and infographics — all in one app.",
+    "Dikkha AI is the smartest study companion for Class 9-10 students in Bangladesh. Textbook-based AI explanations, flashcards, formula sheet, SSC suggestions, and infographics, all in one app.",
 }
 
 const FEATURE_SLIDES = [
@@ -51,7 +53,7 @@ export default function DikkhaPage() {
     <>
       {/* ── HERO ── */}
       <section className="relative min-h-[92vh] flex items-center overflow-hidden py-20 md:py-28">
-        {/* Background — artsy mesh gradient */}
+        {/* Background - artsy mesh gradient */}
         <div className="absolute inset-0 -z-10">
           {/* Primary purple sweep from top */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_100%_70%_at_55%_-15%,rgba(122,44,180,0.32),transparent_60%)]" />
@@ -88,7 +90,7 @@ export default function DikkhaPage() {
               </h1>
 
               <p className="mb-8 text-lg text-muted-foreground leading-relaxed max-w-md">
-                Built for Class 9-10 students in Bangladesh. Read your NCTB textbooks, select any text, and instantly get AI explanations, flashcards, formulas, and infographics — in Bangla.
+                Built for Class 9-10 students in Bangladesh. Read your NCTB textbooks, select any text, and instantly get AI explanations, flashcards, formulas, and infographics, in Bangla.
               </p>
 
               <div className="flex flex-col gap-3 sm:flex-row mb-10">
@@ -112,6 +114,7 @@ export default function DikkhaPage() {
                   <Link href="#video">Watch Demo</Link>
                 </Button>
               </div>
+              <SocialLinks links={SOCIALS.dikkha} name="Dikkha" />
 
               {/* Trust pills */}
               <div className="flex flex-wrap gap-2">
@@ -132,21 +135,21 @@ export default function DikkhaPage() {
               </div>
             </div>
 
-            {/* Right — floating store listing image */}
+            {/* Right - floating store listing image */}
             <div className="flex items-center justify-center">
               <div className="relative animate-float-slow">
                 {/* Deep glow pool beneath */}
                 <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 h-48 w-56 rounded-full bg-[#8b38bc]/40 blur-[70px]" />
-                {/* Secondary colour bloom — indigo */}
+                {/* Secondary colour bloom - indigo */}
                 <div className="absolute -top-6 -right-8 h-32 w-32 rounded-full bg-indigo-500/20 blur-[50px]" />
-                {/* Magenta accent — left */}
+                {/* Magenta accent - left */}
                 <div className="absolute top-1/2 -left-8 h-28 w-28 rounded-full bg-fuchsia-500/15 blur-[45px]" />
 
 
-                {/* The hero image — store listing slide */}
+                {/* The hero image - store listing slide */}
                 <img
                   src="/products/dikkha/slides/slide2.png"
-                  alt="Dikkha AI — My Library showing all Class 9-10 subjects"
+                  alt="Dikkha AI, My Library showing all Class 9-10 subjects"
                   className="relative z-10 w-[260px] sm:w-[300px] lg:w-[320px] rounded-3xl shadow-[0_32px_80px_rgba(0,0,0,0.5),0_0_0_1px_rgba(139,56,188,0.2)]"
                 />
               </div>
@@ -186,7 +189,7 @@ export default function DikkhaPage() {
             </span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-            Every screen is built around how Class 9-10 students actually study — not how an AI chatbot works.
+            Every screen is built around how Class 9-10 students actually study, not how an AI chatbot works.
           </p>
         </Container>
 
@@ -196,7 +199,7 @@ export default function DikkhaPage() {
       {/* ── PROMO VIDEO ── */}
       <section id="video" className="relative overflow-hidden py-20 md:py-28 border-t border-white/[0.06]">
         <div className="absolute inset-0 -z-10">
-          {/* Rich layered gradient — purple core, indigo spill, magenta blush */}
+          {/* Rich layered gradient - purple core, indigo spill, magenta blush */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_50%_0%,rgba(109,40,217,0.28),transparent_60%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_10%_80%,rgba(59,130,246,0.14),transparent_55%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_90%_80%,rgba(168,85,247,0.12),transparent_55%)]" />
@@ -217,7 +220,7 @@ export default function DikkhaPage() {
               </span>
             </h2>
             <p className="text-muted-foreground max-w-lg mx-auto">
-              Watch how a student reads, selects, and gets AI-powered help — all within seconds.
+              Watch how a student reads, selects, and gets AI-powered help, all within seconds.
             </p>
           </div>
 
@@ -248,8 +251,8 @@ export default function DikkhaPage() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: Brain, title: "Intent Understanding", desc: "Interprets what a student actually means from their selected textbook context." },
-              { icon: Sparkles, title: "Smart Query Rewriting", desc: "Refines unclear prompts before retrieval — better questions, better answers." },
-              { icon: ScanText, title: "Selection-Based", desc: "Every AI action flows from what the student highlighted — zero context-loss." },
+              { icon: Sparkles, title: "Smart Query Rewriting", desc: "Refines unclear prompts before retrieval, better questions, better answers." },
+              { icon: ScanText, title: "Selection-Based", desc: "Every AI action flows from what the student highlighted, zero context-loss." },
               { icon: BookOpen, title: "NCTB-First Context", desc: "Grounded in Class 9-10 curriculum language, not generic internet knowledge." },
             ].map((item, i) => (
               <GlowCard key={i} className="group relative overflow-hidden p-6 text-center border-[#8b38bc]/25 bg-gradient-to-b from-card to-[#8b38bc]/[0.06]">
@@ -330,7 +333,7 @@ export default function DikkhaPage() {
                 SSC 2026 Exam Prep
               </Badge>
               <h2 className="text-3xl font-extrabold sm:text-4xl mb-4">
-                SSC ২০২৬ সাজেশন —{" "}
+                SSC ২০২৬ সাজেশন:{" "}
                 <span className="bg-gradient-to-r from-amber-400 to-amber-200 bg-clip-text text-transparent">
                   chapter by chapter
                 </span>
@@ -398,7 +401,7 @@ export default function DikkhaPage() {
 
             {[
               { step: "01", title: "Read from your book", desc: "Open any NCTB chapter and focus on the exact line or paragraph you need to understand." },
-              { step: "02", title: "Select and choose action", desc: "Highlight the text and pick — AI Explain, Flashcards, Formula help, or Infographics." },
+              { step: "02", title: "Select and choose action", desc: "Highlight the text and pick, AI Explain, Flashcards, Formula help, or Infographics." },
               { step: "03", title: "Learn and revise smarter", desc: "Get a clear Bangla answer, save key content, and keep your study flow going." },
             ].map((item, i) => (
               <GlowCard key={i} className="flex flex-col items-center text-center p-8 border-[#8b38bc]/20">
@@ -457,11 +460,11 @@ export default function DikkhaPage() {
             items={[
               {
                 question: "Who can use Dikkha AI?",
-                answer: "Dikkha AI is built for all Class 9-10 students in Bangladesh — Science, Commerce, and Arts/Humanities groups. Every feature is designed for this exact curriculum and student level."
+                answer: "Dikkha AI is built for all Class 9-10 students in Bangladesh, Science, Commerce, and Arts/Humanities groups. Every feature is designed for this exact curriculum and student level."
               },
               {
                 question: "How does AI Explain work?",
-                answer: "Students drag-highlight any section of their NCTB textbook and tap 'Explain this'. Dikkha AI retrieves curriculum-aligned context and generates a clear, student-friendly explanation in Bangla — with math where relevant."
+                answer: "Students drag-highlight any section of their NCTB textbook and tap 'Explain this'. Dikkha AI retrieves curriculum-aligned context and generates a clear, student-friendly explanation in Bangla, with math where relevant."
               },
               {
                 question: "Can students generate revision materials automatically?",
@@ -469,11 +472,11 @@ export default function DikkhaPage() {
               },
               {
                 question: "What is SSC 2026 Suggestions?",
-                answer: "A dedicated section inside Dikkha AI that maps curated exam suggestions to NCTB chapters — helping students know which topics are most important, what question types to expect, and where to focus revision before the SSC 2026 exam."
+                answer: "A dedicated section inside Dikkha AI that maps curated exam suggestions to NCTB chapters, helping students know which topics are most important, what question types to expect, and where to focus revision before the SSC 2026 exam."
               },
               {
                 question: "Why use Dikkha AI instead of a generic AI chatbot?",
-                answer: "Dikkha AI is textbook-first, not chat-first. It's built around the selection-based learning flow that Class 9-10 students actually use — reading a chapter, encountering a difficult concept, and wanting immediate help from that exact context. Generic chatbots don't have NCTB curriculum knowledge or the structured revision tools Dikkha provides."
+                answer: "Dikkha AI is textbook-first, not chat-first. It's built around the selection-based learning flow that Class 9-10 students actually use, reading a chapter, encountering a difficult concept, and wanting immediate help from that exact context. Generic chatbots don't have NCTB curriculum knowledge or the structured revision tools Dikkha provides."
               },
             ]}
           />

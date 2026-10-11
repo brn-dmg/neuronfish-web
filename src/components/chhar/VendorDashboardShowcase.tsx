@@ -14,7 +14,7 @@ export function VendorDashboardShowcase({ screens }: VendorDashboardShowcaseProp
 
   return (
     <div className="relative mx-auto" style={{ maxWidth: 660 }}>
-      {/* Amber radial glow — sits behind the entire cluster */}
+      {/* Amber radial glow - sits behind the entire cluster */}
       <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
         <div
           className="rounded-full"
@@ -60,7 +60,7 @@ export function VendorDashboardShowcase({ screens }: VendorDashboardShowcaseProp
           </div>
         )}
 
-        {/* Hero — center, lifted above secondaries */}
+        {/* Hero - center, lifted above secondaries */}
         {hero && (
           <div
             className="relative shrink-0"

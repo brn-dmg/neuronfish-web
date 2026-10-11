@@ -7,7 +7,7 @@ const google = createGoogleGenerativeAI({
 import { NextRequest } from 'next/server'
 import { buildSystemPrompt } from '@/components/pluto/system-prompt'
 
-// Simple in-memory IP rate limiter — resets on server restart.
+// Simple in-memory IP rate limiter - resets on server restart.
 // Upgrade to Upstash Redis if abuse becomes a concern.
 const ipStore = new Map<string, { count: number; resetAt: number }>()
 const IP_LIMIT = 30

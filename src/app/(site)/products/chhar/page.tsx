@@ -1,6 +1,8 @@
 import Image from "next/image"
 import { MapPin, Tag, ArrowRight, BarChart2, Pause, Zap, Link2, Store, ShoppingBag } from "lucide-react"
-import { CHHAR_PLAY_STORE_URL } from "@/lib/constants"
+import { CHHAR_PLAY_STORE_URL, CHHAR_WHATSAPP_NUMBER } from "@/lib/constants"
+import { SOCIALS } from "@/lib/social"
+import { SocialLinks } from "@/components/site/SocialLinks"
 import { Button } from "@/components/ui/Button"
 import { Container } from "@/components/ui/Container"
 import { SectionHeading } from "@/components/ui/SectionHeading"
@@ -11,26 +13,25 @@ import { ChharScreenshotMarquee } from "@/components/chhar/ScreenshotMarquee"
 import { VendorDashboardShowcase } from "@/components/chhar/VendorDashboardShowcase"
 
 export const metadata = {
-  title: "CHHAR (ছাড়) — The deals platform Bangladesh runs on",
+  title: "CHHAR (ছাড়): The deals platform Bangladesh runs on",
   description:
     "CHHAR is a two-sided deals marketplace live in Dhaka, Chittagong, Rajshahi, and Khulna. Consumers find flash deals near them. Vendors reach thousands of active deal-seekers.",
 }
 
-// WhatsApp pre-filled link — number to be confirmed with NeuronFish team before ship
 const WHATSAPP_VENDOR_LINK =
-  "https://wa.me/8801711000000?text=Hi%2C%20I%27d%20like%20to%20list%20my%20business%20on%20CHHAR.%20Business%3A%20%5Bname%5D%2C%20City%3A%20%5Bcity%5D"
+  `https://wa.me/${CHHAR_WHATSAPP_NUMBER}?text=Hi%2C%20I%27d%20like%20to%20list%20my%20business%20on%20CHHAR.%20Business%3A%20%5Bname%5D%2C%20City%3A%20%5Bcity%5D`
 
 
 const VENDOR_VALUE_PROPS = [
   {
     icon: MapPin,
     title: "Reach",
-    desc: "Put your offers in front of deal-seekers across Dhaka, Chittagong, Rajshahi, and Khulna. Target by contextual segment and geography — Student Saver, Date Night, Family Feast, Eco.",
+    desc: "Put your offers in front of deal-seekers across Dhaka, Chittagong, Rajshahi, and Khulna. Target by contextual segment and geography, Student Saver, Date Night, Family Feast, Eco.",
   },
   {
     icon: Pause,
     title: "Control",
-    desc: "Pause or resume your discounts anytime. Manage your spend with a full ledger. No subscription, no lock-in — you decide what runs and when.",
+    desc: "Pause or resume your discounts anytime. Manage your spend with a full ledger. No subscription, no lock-in, you decide what runs and when.",
   },
   {
     icon: BarChart2,
@@ -43,7 +44,7 @@ const CONSUMER_FAQS = [
   {
     question: "Is CHHAR free to download and use?",
     answer:
-      "Yes — completely free for consumers. Download from the Play Store, browse deals, and redeem offers. No subscription, no hidden charges.",
+      "Yes, completely free for consumers. Download from the Play Store, browse deals, and redeem offers. No subscription, no hidden charges.",
   },
   {
     question: "How do I redeem a deal?",
@@ -58,7 +59,7 @@ const CONSUMER_FAQS = [
   {
     question: "Does CHHAR work offline?",
     answer:
-      "You need an internet connection to browse live deals and map data. However, saved offers — especially store-only vouchers — can be accessed offline for show-at-counter redemption.",
+      "You need an internet connection to browse live deals and map data. However, saved offers, especially store-only vouchers, can be accessed offline for show-at-counter redemption.",
   },
   {
     question: "What deal categories does CHHAR cover?",
@@ -71,7 +72,7 @@ const VENDOR_FAQS = [
   {
     question: "How does listing on CHHAR work?",
     answer:
-      "Submit your offer, set the deal type (promo code, redeem link, store-only, or BOGO), and CHHAR surfaces it to active deal-seekers in your city. Setup takes minutes via the vendor app — no web portal required.",
+      "Submit your offer, set the deal type (promo code, redeem link, store-only, or BOGO), and CHHAR surfaces it to active deal-seekers in your city. Setup takes minutes via the vendor app, no web portal required.",
   },
   {
     question: "What is the pricing model?",
@@ -81,12 +82,12 @@ const VENDOR_FAQS = [
   {
     question: "Can I pause or resume my discounts?",
     answer:
-      "Yes. Full control from the vendor dashboard — pause, resume, or edit any listing at any time. Run a flash deal for one weekend, then pause. It's entirely up to you.",
+      "Yes. Full control from the vendor dashboard, pause, resume, or edit any listing at any time. Run a flash deal for one weekend, then pause. It's entirely up to you.",
   },
   {
     question: "What analytics do I get?",
     answer:
-      "The Insights tab shows impressions, engagement rates, and performance trends per listing — so you can see exactly what's driving foot traffic and what isn't.",
+      "The Insights tab shows impressions, engagement rates, and performance trends per listing, so you can see exactly what's driving foot traffic and what isn't.",
   },
   {
     question: "How do I get started?",
@@ -135,7 +136,7 @@ export default function ChharPage() {
 
               <p className="mb-6 text-lg leading-relaxed text-[#F2F2F3]/70">
                 Consumers find flash deals nearby. Businesses reach thousands of active deal-seekers
-                across 4 cities. One platform — both sides win.
+                across 4 cities. One platform, both sides win.
               </p>
 
               {/* Live city indicators */}
@@ -197,6 +198,7 @@ export default function ChharPage() {
                   </a>
                 </Button>
               </div>
+              <SocialLinks links={SOCIALS.chhar} name="CHHAR" className="mt-5" />
             </div>
 
             {/* Hero screenshot */}
@@ -209,7 +211,7 @@ export default function ChharPage() {
                 <div className="relative w-[240px] sm:w-[280px] overflow-hidden rounded-[2rem] border border-[#D9FF3B]/20 shadow-[0_0_60px_rgba(217,255,59,0.15)]">
                   <img
                     src="/products/chhar/consumer/ss-01.png"
-                    alt="CHHAR app — editorial home feed"
+                    alt="CHHAR app, editorial home feed"
                     className="w-full h-auto object-cover object-top block"
                     loading="eager"
                   />
@@ -286,10 +288,10 @@ export default function ChharPage() {
                 <span style={{ color: "#FF5A36" }}>Always nearby.</span>
               </h2>
               <p className="mb-8 text-lg leading-relaxed text-[#F2F2F3]/65">
-                Flash deals expire. CHHAR's countdown surface makes sure you never miss a window — every deal shows exactly how long you have left to act.
+                Flash deals expire. CHHAR&apos;s countdown surface makes sure you never miss a window, every deal shows exactly how long you have left to act.
               </p>
 
-              {/* Hardcoded countdown — visual prop */}
+              {/* Hardcoded countdown - visual prop */}
               <div className="flex items-center gap-3">
                 <div className="text-center">
                   <div
@@ -355,14 +357,14 @@ export default function ChharPage() {
               Deals curated for your moment
             </h2>
             <p className="mt-2 max-w-lg text-base" style={{ color: "rgba(242,242,243,0.55)" }}>
-              Not just everything nearby — the right deal for the right context.
+              Not just everything nearby, the right deal for the right context.
             </p>
           </div>
 
-          {/* Magazine asymmetric grid — alternating large/compact per row */}
+          {/* Magazine asymmetric grid - alternating large/compact per row */}
           <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
 
-            {/* ── Student Saver — LARGE (row 1 left) ── */}
+            {/* ── Student Saver - LARGE (row 1 left) ── */}
             <div
               className="group relative cursor-default overflow-hidden rounded-2xl p-8 md:col-span-7 md:p-10"
               style={{
@@ -394,12 +396,12 @@ export default function ChharPage() {
                   Your budget&apos;s best friend on campus.
                 </p>
                 <p className="mt-2 text-sm" style={{ color: "rgba(242,242,243,0.4)" }}>
-                  Food, tech, stationery — deals built for student wallets across all 4 cities.
+                  Food, tech, stationery, deals built for student wallets across all 4 cities.
                 </p>
               </div>
             </div>
 
-            {/* ── Date Night — COMPACT (row 1 right) ── */}
+            {/* ── Date Night - COMPACT (row 1 right) ── */}
             <div
               className="group relative cursor-default overflow-hidden rounded-2xl p-7 md:col-span-5"
               style={{
@@ -436,7 +438,7 @@ export default function ChharPage() {
               </div>
             </div>
 
-            {/* ── Family Feast — COMPACT (row 2 left) ── */}
+            {/* ── Family Feast - COMPACT (row 2 left) ── */}
             <div
               className="group relative cursor-default overflow-hidden rounded-2xl p-7 md:col-span-5"
               style={{
@@ -473,7 +475,7 @@ export default function ChharPage() {
               </div>
             </div>
 
-            {/* ── Eco — LARGE (row 2 right) ── */}
+            {/* ── Eco - LARGE (row 2 right) ── */}
             <div
               className="group relative cursor-default overflow-hidden rounded-2xl p-8 md:col-span-7 md:p-10"
               style={{
@@ -532,7 +534,7 @@ export default function ChharPage() {
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
 
-            {/* ── Map View — featured discovery card ── */}
+            {/* ── Map View - featured discovery card ── */}
             <div
               className="group relative cursor-default overflow-hidden rounded-2xl p-8 md:col-span-5 md:p-10"
               style={{
@@ -541,7 +543,7 @@ export default function ChharPage() {
                 minHeight: "280px",
               }}
             >
-              {/* Radar rings — purely decorative */}
+              {/* Radar rings - purely decorative */}
               <div className="pointer-events-none absolute -bottom-10 -right-10" aria-hidden>
                 <div className="relative h-20 w-20">
                   <div className="absolute inset-0 rounded-full" style={{ border: "1px solid rgba(217,255,59,0.22)", transform: "scale(1.8)" }} />
@@ -571,12 +573,12 @@ export default function ChharPage() {
                   Map View
                 </h3>
                 <p className="text-sm leading-relaxed" style={{ color: "rgba(242,242,243,0.65)" }}>
-                  Every active deal clustered on a live map. Tap any pin to see the offer — and claim it without leaving the spot.
+                  Every active deal clustered on a live map. Tap any pin to see the offer, and claim it without leaving the spot.
                 </p>
               </div>
             </div>
 
-            {/* ── 4 redemption types — 2×2 grid ── */}
+            {/* ── 4 redemption types - 2×2 grid ── */}
             <div className="grid grid-cols-2 gap-4 md:col-span-7">
 
               {/* Promo Code */}
@@ -787,14 +789,14 @@ export default function ChharPage() {
               Run your listings from the app
             </h2>
             <p className="mt-2 max-w-lg text-base" style={{ color: "rgba(242,242,243,0.55)" }}>
-              Everything you need — analytics, discount control, store profile — inside CHHAR.
+              Everything you need, analytics, discount control, store profile, inside CHHAR.
             </p>
           </div>
           <VendorDashboardShowcase
             screens={[
               {
                 src: "/products/chhar/vendor/insight1.jpeg",
-                alt: "CHHAR vendor Insights tab — impressions and engagement analytics",
+                alt: "CHHAR vendor Insights tab, impressions and engagement analytics",
                 label: "Insights",
               },
               {
@@ -804,7 +806,7 @@ export default function ChharPage() {
               },
               {
                 src: "/products/chhar/vendor/my_store.png",
-                alt: "CHHAR vendor My Store tab — store profile as customers see it",
+                alt: "CHHAR vendor My Store tab, store profile as customers see it",
                 label: "My Store",
               },
             ]}
@@ -861,7 +863,7 @@ export default function ChharPage() {
                 Ready to list your business?
               </h2>
               <p className="mb-8 text-base leading-relaxed" style={{ color: "rgba(242,242,243,0.6)" }}>
-                Send us a WhatsApp message and we'll onboard you personally. Dhaka B2B runs on WhatsApp — so do we.
+                Send us a WhatsApp message and we&apos;ll onboard you personally. Dhaka B2B runs on WhatsApp, so do we.
               </p>
               <a
                 href={WHATSAPP_VENDOR_LINK}
@@ -948,7 +950,7 @@ export default function ChharPage() {
                 CHHAR is live in 4 cities.
               </h2>
               <p className="mb-10 text-lg" style={{ color: "rgba(242,242,243,0.6)" }}>
-                Download free and find deals near you — or list your business and reach them first.
+                Download free and find deals near you, or list your business and reach them first.
               </p>
               <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
                 <Button
