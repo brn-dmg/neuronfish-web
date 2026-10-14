@@ -76,7 +76,6 @@ THE TEAM
 
 - Risad Raihan Malik, Founder & CEO. Leads the company and its technical direction.
 - Saif Rashid, Co-founder & Managing Director. Drives growth and partnerships.
-- Nafis Radoan, Lead, Full-Stack Department. Full-stack engineer ensuring robust and seamless application experiences across the product suite.
 `.trim()
 
 const DIKKHA_INFO = `
