@@ -2,6 +2,7 @@ import { getContent } from "@/content/dikkha"
 import { digits } from "@/content/dikkha/digits"
 import type { Lang } from "@/content/dikkha/lang"
 import { createCheckoutApi, type Package } from "@/lib/checkout"
+import { checkoutEnabled } from "@/lib/checkout/flag"
 
 const fill = (s: string, v: Record<string, string>) => s.replace(/\{(\w+)\}/g, (_, k) => v[k] ?? "")
 
@@ -11,7 +12,9 @@ const fill = (s: string, v: Record<string, string>) => s.replace(/\{(\w+)\}/g, (
 async function loadPackages(): Promise<Package[]> {
   try {
     return await createCheckoutApi(() => null).listPackages()
-  } catch {
+  } catch (e) {
+    // The page keeps rendering without the pack list; the log says why it is missing.
+    console.error("Prices: could not load the Coin packs", e)
     return []
   }
 }
@@ -44,7 +47,7 @@ export async function Prices({ lang }: { lang: Lang }) {
                   </li>
                 ))}
               </ul>
-              <div className="text-sm text-dk-muted">{t.payNote}</div>
+              <div className="text-sm text-dk-muted">{checkoutEnabled ? t.payNote : t.payNoteSoon}</div>
             </div>
           )}
         </div>

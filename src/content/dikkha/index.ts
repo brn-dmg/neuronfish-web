@@ -109,6 +109,7 @@ export const en = {
       pack: "{amount} → {coins} Coins",
       bonus: "+{bonus} bonus",
       payNote: "You can buy Coins on this website with bKash.",
+      payNoteSoon: "Coin packs will be available on this website soon. You will pay with bKash.",
     },
     parents: {
       title: "A weekly report for parents",
@@ -120,8 +121,8 @@ export const en = {
         { q: "What is Dikkha?", a: "Dikkha is an AI study assistant. It explains your Class 9–10 NCTB book chapter by chapter in Bangla, and gives you practice and model tests." },
         { q: "Which class and study groups is it for?", a: "Class 9–10 (SSC), for all three study groups: Science, Business Studies and Humanities." },
         { q: "Is Dikkha free?", a: "Practice is always free. For the AI features you get some free use every week. After that you need Coins." },
-        { q: "What are Coins?", a: "Coins pay for extra use of the AI features. The Coin packs and their prices are shown above." },
-        { q: "Can I buy Coins with bKash?", a: "Yes. You can buy Coins on this website with bKash." },
+        { q: "What are Coins?", a: "Coins pay for extra use of the AI features." },
+        { q: "Can I buy Coins with bKash?", a: "Yes. You can buy Coins on this website with bKash.", aSoon: "Coin packs will be available on this website soon, and you will pay with bKash." },
         { q: "Is my information safe?", a: "Your chats are never shown to your parents. How we handle your data is written on our Privacy page." },
         { q: "How does the parent report work?", a: "You add a parent's phone number and they confirm it with a code. Then every Friday evening they get a short SMS about how many days you studied and how ready you are." },
         { q: "Which phones does it run on?", a: "You can get Dikkha from Google Play, and it runs well on ordinary Android phones." },
@@ -197,7 +198,7 @@ export const bn: DeepPartial<Content> = {
     features: {
       title: "যা যা পাবে",
       items: [
-        { name: "Explain", body: "বই থেকে সিলেক্ট করো" },
+        { name: "বুঝিয়ে দাও", body: "বই থেকে সিলেক্ট করো" },
         { name: "চ্যাট + ছবি", body: "প্রশ্নের ছবি তোলো" },
         { name: "প্র্যাকটিস", body: "MCQ, CQ, বোর্ড প্রশ্ন · সবসময় ফ্রি" },
         { name: "CQ খাতার ছবি", body: "নম্বর দেয়" },
@@ -222,6 +223,7 @@ export const bn: DeepPartial<Content> = {
       pack: "{amount} → {coins} কয়েন",
       bonus: "+{bonus} বোনাস",
       payNote: "এই ওয়েবসাইটে বিকাশ দিয়ে কয়েন কেনা যায়।",
+      payNoteSoon: "শিগগিরই এই ওয়েবসাইটে কয়েন প্যাক পাওয়া যাবে। দাম দেবে বিকাশে।",
     },
     parents: {
       title: "অভিভাবকদের জন্য সাপ্তাহিক রিপোর্ট",
@@ -233,8 +235,8 @@ export const bn: DeepPartial<Content> = {
         { q: "Dikkha কী?", a: "Dikkha একটি AI পড়ার সহকারী। ক্লাস ৯–১০-এর NCTB বইয়ের অধ্যায় ধরে বাংলায় ব্যাখ্যা, প্র্যাকটিস আর মডেল টেস্ট দেয়।" },
         { q: "কোন ক্লাস আর কোন বিভাগের জন্য?", a: "ক্লাস ৯–১০ (SSC)। বিজ্ঞান, ব্যবসায় শিক্ষা আর মানবিক, তিন বিভাগের জন্যই।" },
         { q: "Dikkha কি ফ্রি?", a: "প্র্যাকটিস সবসময় ফ্রি। AI-এর কাজে প্রতি সপ্তাহে কিছু ফ্রি ব্যবহার পাবে। তারপর কয়েন লাগে।" },
-        { q: "কয়েন কী?", a: "কয়েন দিয়ে AI-এর কাজে বাড়তি ব্যবহার করা যায়। কয়েন প্যাক আর তাদের দাম ওপরে দেখানো আছে।" },
-        { q: "বিকাশ দিয়ে কয়েন কেনা যাবে?", a: "হ্যাঁ। এই ওয়েবসাইটে বিকাশ দিয়ে কয়েন কেনা যায়।" },
+        { q: "কয়েন কী?", a: "কয়েন দিয়ে AI-এর কাজে বাড়তি ব্যবহার করা যায়।" },
+        { q: "বিকাশ দিয়ে কয়েন কেনা যাবে?", a: "হ্যাঁ। এই ওয়েবসাইটে বিকাশ দিয়ে কয়েন কেনা যায়।", aSoon: "শিগগিরই এই ওয়েবসাইটে কয়েন কেনা যাবে, বিকাশ দিয়ে।" },
         { q: "আমার তথ্য কি নিরাপদ?", a: "তোমার চ্যাট অভিভাবককে কখনো দেখানো হয় না। তোমার তথ্য আমরা কীভাবে ব্যবহার করি, তা গোপনীয়তা পাতায় লেখা আছে।" },
         { q: "অভিভাবকের রিপোর্ট কীভাবে কাজ করে?", a: "তুমি অভিভাবকের ফোন নম্বর দিলে তিনি একটি কোড দিয়ে নিশ্চিত করেন। তারপর প্রতি শুক্রবার সন্ধ্যায় তিনি একটি SMS পান: কতদিন পড়েছ, প্রস্তুতি কেমন।" },
         { q: "কোন ফোনে চলে?", a: "Google Play থেকে Dikkha নামানো যায়। সাধারণ Android ফোনেও ভালো চলে।" },

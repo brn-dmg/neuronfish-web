@@ -1,5 +1,6 @@
 import { getContent } from "@/content/dikkha"
 import type { Lang } from "@/content/dikkha/lang"
+import { checkoutEnabled } from "@/lib/checkout/flag"
 
 // Plain <details>: no JavaScript, keyboard and screen-reader friendly.
 export function Faq({ lang }: { lang: Lang }) {
@@ -15,7 +16,7 @@ export function Faq({ lang }: { lang: Lang }) {
                 {item.q}
                 <span aria-hidden className="text-xl text-dk-muted transition-transform group-open:rotate-45">+</span>
               </summary>
-              <div className="pt-2 text-dk-muted">{item.a}</div>
+              <div className="pt-2 text-dk-muted">{!checkoutEnabled && item.aSoon ? item.aSoon : item.a}</div>
             </details>
           ))}
         </div>

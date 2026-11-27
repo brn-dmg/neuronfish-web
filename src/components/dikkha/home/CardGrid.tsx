@@ -12,7 +12,7 @@ export function CardGrid({ lang, block, id, tone }: { lang: Lang; block: Block; 
     <section id={id} className={section}>
       <div className="mx-auto grid max-w-5xl gap-6 px-4 py-12">
         <h2 className="text-2xl!">{t.title}</h2>
-        <ul className={`grid gap-3 sm:grid-cols-2 md:grid-cols-3`}>
+        <ul className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
           {t.items.map((item) => (
             <li key={item.name} className={`rounded-xl border border-dk-line px-4 py-3 ${card}`}>
               <div className="font-semibold">{item.name}</div>
