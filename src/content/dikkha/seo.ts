@@ -8,8 +8,8 @@ const PATH = { bn: "/dikkha", en: "/dikkha/en" } as const
 const OG_IMAGE = "/dikkha/og.png"
 
 /** The same FAQ answer the page shows: while the checkout is off, the "available soon" wording. */
-export function faqAnswer(item: { a: string; aSoon?: string }): string {
-  return !checkoutEnabled && item.aSoon ? item.aSoon : item.a
+export function faqAnswer(item: { a: string; aSoon?: string }, checkoutOn: boolean = checkoutEnabled): string {
+  return !checkoutOn && item.aSoon ? item.aSoon : item.a
 }
 
 export function dikkhaMetadata(lang: Lang): Metadata {
@@ -40,7 +40,7 @@ export function dikkhaMetadata(lang: Lang): Metadata {
 }
 
 /** SoftwareApplication and FAQPage for answer engines and search; the Organization is already in the root layout. */
-export function dikkhaJsonLd(lang: Lang) {
+export function dikkhaJsonLd(lang: Lang, checkoutOn: boolean = checkoutEnabled) {
   const t = getContent(lang)
   const url = `${COMPANY.url}${PATH[lang]}`
   return {
@@ -48,7 +48,7 @@ export function dikkhaJsonLd(lang: Lang) {
     "@graph": [
       {
         "@type": "SoftwareApplication",
-        "@id": `${COMPANY.url}/dikkha#app`,
+        "@id": `${url}#app`, // one per language, so the two pages are not merged into one entity
         name: "Dikkha",
         description: t.meta.description,
         url,
@@ -66,7 +66,7 @@ export function dikkhaJsonLd(lang: Lang) {
         mainEntity: t.home.faq.items.map((item) => ({
           "@type": "Question",
           name: item.q,
-          acceptedAnswer: { "@type": "Answer", text: faqAnswer(item) },
+          acceptedAnswer: { "@type": "Answer", text: faqAnswer(item, checkoutOn) },
         })),
       },
     ],

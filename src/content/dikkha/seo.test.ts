@@ -5,7 +5,7 @@ import { dikkhaJsonLd, dikkhaMetadata } from "./seo.ts"
 
 type Faq = { mainEntity: { name: string; acceptedAnswer: { text: string } }[] }
 type App = { downloadUrl: string; offers: { price: string }; publisher: { "@id": string } }
-const node = <T>(lang: "bn" | "en", type: string) => dikkhaJsonLd(lang)["@graph"].find((n) => n["@type"] === type) as T | undefined
+const node = <T>(lang: "bn" | "en", type: string, checkoutOn?: boolean) => dikkhaJsonLd(lang, checkoutOn)["@graph"].find((n) => n["@type"] === type) as T | undefined
 
 for (const lang of ["bn", "en"] as const) {
   test(`${lang}: structured data is a SoftwareApplication and a FAQPage with every question`, () => {
@@ -36,8 +36,13 @@ for (const lang of ["bn", "en"] as const) {
   })
 }
 
-test("while the checkout is off the FAQ answer says Coin packs are coming soon", () => {
-  const faq = node<Faq>("en", "FAQPage")!
-  const bkash = faq.mainEntity.find((q) => q.name.includes("bKash"))!
-  assert.match(bkash.acceptedAnswer.text, /soon/)
+test("the FAQ answer follows the checkout flag, whatever the environment says", () => {
+  const bkash = (on: boolean) => node<Faq>("en", "FAQPage", on)!.mainEntity.find((q) => q.name.includes("bKash"))!.acceptedAnswer.text
+  assert.match(bkash(false), /available on this website soon/)
+  assert.match(bkash(true), /You can buy Coins on this website with bKash/)
+})
+
+test("the two languages have different application ids", () => {
+  const id = (lang: "bn" | "en") => (node<App & { "@id": string }>(lang, "SoftwareApplication"))!["@id"]
+  assert.notEqual(id("bn"), id("en"))
 })

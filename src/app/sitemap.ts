@@ -27,14 +27,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
-      alternates: { languages: { bn: `${baseUrl}/dikkha`, en: `${baseUrl}/dikkha/en` } },
+      alternates: { languages: { bn: `${baseUrl}/dikkha`, en: `${baseUrl}/dikkha/en`, 'x-default': `${baseUrl}/dikkha` } },
     },
     {
       url: `${baseUrl}/dikkha/en`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
-      alternates: { languages: { bn: `${baseUrl}/dikkha`, en: `${baseUrl}/dikkha/en` } },
+      alternates: { languages: { bn: `${baseUrl}/dikkha`, en: `${baseUrl}/dikkha/en`, 'x-default': `${baseUrl}/dikkha` } },
     },
     {
       url: `${baseUrl}/products/dikkha`,
