@@ -26,7 +26,8 @@ function errKey(e: unknown): ErrKey {
     case "trx_id_duplicate": return "duplicateTrx"
     case "payment_in_progress": return "paymentInProgress"
     case "too_many_attempts": return "tooManyAttempts"
-    case "order_not_open": return "orderNotOpen"
+    case "order_not_open":
+    case "order_expired": return "orderNotOpen"
     case "order_not_found": return "orderNotFound"
     case "invalid_package": return "invalidPackage"
     default: return "generic"
@@ -75,7 +76,7 @@ export function Checkout({ brand, api, studentName }: { brand: CheckoutBrand; ap
   const orderExpiry = view.v === "order" ? Date.parse(view.order.expires_at) : NaN
   useEffect(() => {
     if (Number.isNaN(orderExpiry)) return
-    const id = setTimeout(() => setView({ v: "expired" }), Math.max(0, orderExpiry - Date.now()))
+    const id = setTimeout(() => setView({ v: "expired" }), Math.min(2 ** 31 - 1, Math.max(0, orderExpiry - Date.now())))
     return () => clearTimeout(id)
   }, [orderExpiry])
 
@@ -83,8 +84,7 @@ export function Checkout({ brand, api, studentName }: { brand: CheckoutBrand; ap
     try {
       setView({ v: "order", order: await api.createOrder(pkg.package_id) })
     } catch (e) {
-      const key = errKey(e)
-      await go(key === "invalidPackage" ? "invalidPackage" : key)
+      await go(errKey(e))
     }
   }
 
@@ -219,7 +219,7 @@ function OrderView({ order, t, onSubmit, onChange }: { order: Order; t: Checkout
 
 function Done({ payment, balance, brand }: { payment: Payment; balance: number; brand: CheckoutBrand }) {
   const t = brand.copy
-  const added = payment.status !== "pending" // "pending" waits for verification; any other status already has its Coins
+  const added = payment.status === "unverified" || payment.status === "verified" // anything else (pending, rejected, revoked) has no Coins yet
   return (
     <div className={`${card} space-y-3`}>
       <h2>{added ? t.doneAddedTitle : t.donePendingTitle}</h2>

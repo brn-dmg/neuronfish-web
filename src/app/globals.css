@@ -511,7 +511,8 @@ p {
   margin-top: 0;
 }
 
-/* The shared Checkout reads its colors from these variables; each app's layout defines them. */
+/* The shared Checkout reads its colors from --ck-* variables. They are defined on the app's layout
+   wrapper class (here .dk-root); a new app (Poshra, BCS) defines the same names on its own wrapper. */
 .dk-root {
   --ck-primary: var(--color-dk-primary);
   --ck-on-primary: var(--color-dk-on-primary);
