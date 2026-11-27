@@ -27,6 +27,7 @@ test("sign in, reload and sign out", async () => {
   const r = await auth.verifyOtp("+8801712345678", MOCK_OTP)
   s.signIn(r, r.user?.name ?? null)
   assert.equal(createSession(auth, store).load()?.name, "Test Student") // a reload keeps it
+  assert.deepEqual(Object.keys(s.get()!).sort(), ["access_token", "expires_at", "name", "refresh_token"]) // nothing else is stored
   s.signOut()
   assert.equal(createSession(auth, store).load(), null)
 })

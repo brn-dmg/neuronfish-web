@@ -33,7 +33,7 @@ export function createSession(auth: AuthApi, store: Store | null, now: () => num
     get: () => state,
     getAccessToken: () => state?.access_token ?? null,
     signIn(tokens: Tokens, name: string | null) {
-      save({ ...tokens, expires_at: now() + ACCESS_TTL_MS, name })
+      save({ access_token: tokens.access_token, refresh_token: tokens.refresh_token, expires_at: now() + ACCESS_TTL_MS, name })
     },
     signOut: () => save(null),
     subscribe(fn: () => void) {
