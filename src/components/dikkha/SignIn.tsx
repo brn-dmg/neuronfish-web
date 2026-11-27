@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { getContent } from "@/content/dikkha"
 import type { Lang } from "@/content/dikkha/lang"
 import { normalizePhone } from "@/lib/auth"
@@ -25,6 +25,8 @@ function errorKey(e: unknown): keyof Errors {
   }
 }
 
+const RESEND_SECONDS = 60 // the app waits 60 s too; the backend allows 3 codes per phone per hour
+
 const input = "w-full rounded-xl border border-dk-line-strong bg-dk-surface px-3 py-3 text-base outline-none focus:border-dk-primary focus:ring-2 focus:ring-dk-primary/30"
 const button = "w-full rounded-xl bg-dk-primary px-4 py-3 text-base font-medium text-dk-on-primary disabled:opacity-60"
 
@@ -36,6 +38,13 @@ export function SignIn({ lang }: { lang: Lang }) {
   const [otp, setOtp] = useState("")
   const [error, setError] = useState<keyof Errors | null>(null)
   const [busy, setBusy] = useState(false)
+  const [wait, setWait] = useState(0)
+
+  useEffect(() => {
+    if (wait <= 0) return
+    const id = setTimeout(() => setWait((w) => w - 1), 1000)
+    return () => clearTimeout(id)
+  }, [wait])
 
   async function run(fn: () => Promise<void>) {
     setBusy(true)
@@ -55,6 +64,7 @@ export function SignIn({ lang }: { lang: Lang }) {
       if (!normalized) throw new CheckoutApiError(400, "Invalid phone format")
       await auth.sendOtp(normalized)
       setStep("otp")
+      setWait(RESEND_SECONDS)
     })
 
   const verify = () =>
@@ -84,7 +94,7 @@ export function SignIn({ lang }: { lang: Lang }) {
     return (
       <div lang={lang} className="space-y-4">
         <h2 className="text-xl font-semibold">{t.needsSetupTitle}</h2>
-        <p className="text-dk-muted">{t.needsSetupBody}</p>
+        <p className="text-dk-muted!">{t.needsSetupBody}</p>
         <a className={`${button} block text-center`} href={DIKKHA_PLAY_STORE_URL} target="_blank" rel="noopener noreferrer">
           {t.getApp}
         </a>
@@ -124,10 +134,10 @@ export function SignIn({ lang }: { lang: Lang }) {
       </button>
       {step === "otp" && (
         <div className="flex justify-between text-sm text-dk-primary-ink">
-          <button type="button" onClick={send} disabled={busy}>
-            {t.sendAgain}
+          <button type="button" onClick={send} disabled={busy || wait > 0} className="disabled:text-dk-muted">
+            {wait > 0 ? t.sendAgainIn.replace("{n}", String(wait)) : t.sendAgain}
           </button>
-          <button type="button" onClick={() => { setStep("phone"); setOtp(""); setError(null) }}>
+          <button type="button" onClick={() => { setStep("phone"); setOtp(""); setError(null); setWait(0) }}>
             {t.changeNumber}
           </button>
         </div>

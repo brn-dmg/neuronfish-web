@@ -16,6 +16,7 @@ export const en = {
     otpLabel: "Code from the SMS",
     verify: "Verify",
     sendAgain: "Send the code again",
+    sendAgainIn: "Send again in {n}s",
     changeNumber: "Use a different number",
     signedInAs: "Signed in as",
     needsSetupTitle: "Finish setup in the app first",
