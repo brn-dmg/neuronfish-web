@@ -1,6 +1,7 @@
 import { Hind_Siliguri, Outfit } from "next/font/google"
 import { DikkhaHeader } from "@/components/dikkha/DikkhaHeader"
 import { DikkhaFooter } from "@/components/dikkha/DikkhaFooter"
+import { SessionProvider } from "@/components/dikkha/SessionProvider"
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" })
 const hindSiliguri = Hind_Siliguri({
@@ -16,9 +17,11 @@ export default function DikkhaLayout({ children }: { children: React.ReactNode }
       className={`dk-root ${outfit.variable} ${hindSiliguri.variable} flex min-h-screen flex-col bg-dk-bg font-dk text-dk-ink`}
       style={{ colorScheme: "light" }}
     >
-      <DikkhaHeader />
-      <main className="flex-1">{children}</main>
-      <DikkhaFooter />
+      <SessionProvider>
+        <DikkhaHeader />
+        <main className="flex-1">{children}</main>
+        <DikkhaFooter />
+      </SessionProvider>
     </div>
   )
 }

@@ -4,18 +4,33 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { getContent } from "@/content/dikkha"
 import { langFromPath, otherLangPath } from "@/content/dikkha/lang"
+import { checkoutEnabled } from "@/lib/checkout/flag"
+import { useSession } from "./SessionProvider"
 
-// Sign in is added in J2-4.
 export function DikkhaHeader() {
   const pathname = usePathname()
   const lang = langFromPath(pathname)
   const t = getContent(lang)
+  const { ready, current, session } = useSession()
+  const base = lang === "en" ? "/dikkha/en" : "/dikkha"
   return (
     <header className="border-b border-dk-line bg-dk-surface" lang={lang}>
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
-        <Link href={lang === "en" ? "/dikkha/en" : "/dikkha"} className="text-xl font-semibold text-dk-primary">
+        <Link href={base} className="text-xl font-semibold text-dk-primary">
           {t.brand}
         </Link>
+        <div className="flex items-center gap-3">
+        {checkoutEnabled && ready && (
+          current ? (
+            <button onClick={session.signOut} className="text-sm text-dk-muted hover:text-dk-ink">
+              {current.name ? `${current.name} · ` : ""}{t.auth.signOut}
+            </button>
+          ) : (
+            <Link href={`${base}/signin`} className="text-sm font-medium text-dk-primary-ink hover:underline">
+              {t.auth.signIn}
+            </Link>
+          )
+        )}
         <Link
           href={otherLangPath(pathname)}
           lang={lang === "en" ? "bn" : "en"}
@@ -24,6 +39,7 @@ export function DikkhaHeader() {
         >
           {t.lang.switchTo}
         </Link>
+        </div>
       </div>
     </header>
   )

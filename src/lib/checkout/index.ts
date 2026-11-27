@@ -14,7 +14,7 @@ const DEFAULT_BASE_URL = "https://dikkha-api.neuronfish.dev"
  */
 export function createCheckoutApi(getToken: () => string | null): CheckoutApi {
   if (process.env.NEXT_PUBLIC_CHECKOUT_API_MODE === "live") {
-    return createLiveApi(process.env.NEXT_PUBLIC_CHECKOUT_API_BASE_URL ?? DEFAULT_BASE_URL, getToken)
+    return createLiveApi(process.env.NEXT_PUBLIC_CHECKOUT_API_BASE_URL || DEFAULT_BASE_URL, getToken)
   }
   return createMockApi()
 }
