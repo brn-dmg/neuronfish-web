@@ -126,3 +126,8 @@ Allowed origins in production: `https://neuronfish.dev`, `https://www.neuronfish
 - `qr_image_url` and `merchant_number` are the same for every order today but can change. Read them from each order response.
 - The error list above is the full checkout list. Auth errors use the same envelope.
 - No staging backend yet. `/docs` is off in production. `openapi.json` follows once checkout is built.
+
+## Addendum 2 from Mrittika's reply (2026-11-27)
+
+- **Packages are public.** `GET /api/checkout/packages` will work without a token, on the same path, with a short cache header. It returns only the pack list (`package_id`, `label`, `coins`, `bonus_coins`, `amount_bdt`), so nothing private is exposed. Every other checkout endpoint stays Bearer-only. This replaces the earlier line that every endpoint needs a token. She will update her copy of the contract when she builds it.
+- **CORS is not live yet.** The live server currently rejects `https://neuronfish.dev` and `https://www.neuronfish.dev`: the allowed origins are a fixed list. The fix is part of her first checkout ticket: origins become a setting, set in production to exactly those two (no localhost, no Vercel previews). It goes live with her next server deploy, and she will say when. Until then the web client keeps using the mock.
