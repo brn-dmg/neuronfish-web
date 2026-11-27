@@ -16,5 +16,7 @@ export function createCheckoutApi(getToken: () => string | null): CheckoutApi {
   if (process.env.NEXT_PUBLIC_CHECKOUT_API_MODE === "live") {
     return createLiveApi(process.env.NEXT_PUBLIC_CHECKOUT_API_BASE_URL || DEFAULT_BASE_URL, getToken)
   }
-  return createMockApi()
+  // Dev only: ?mock=revoked (coins wait for verification) or ?mock=short-expiry (orders expire in 8 s).
+  const scenario = process.env.NODE_ENV !== "production" && typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("mock") : null
+  return createMockApi({ revokedHistory: scenario === "revoked", orderTtlMs: scenario === "short-expiry" ? 8000 : undefined })
 }
