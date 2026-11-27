@@ -20,3 +20,11 @@ test("language paths", () => {
   assert.equal(otherLangPath("/dikkha/en"), "/dikkha")
   assert.equal(otherLangPath("/dikkha/en/checkout"), "/dikkha/checkout")
 })
+
+test("Bangla lists replace the English list as a whole", () => {
+  const c = getContent("bn")
+  assert.ok(Array.isArray(c.home.how.steps))
+  assert.equal(c.home.how.steps.length, 3)
+  assert.equal(c.home.how.steps[0].title, bn.home?.how?.steps?.[0]?.title)
+  assert.equal(getContent("en").home.how.steps[0].title, "Today's work")
+})
