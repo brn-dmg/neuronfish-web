@@ -7,7 +7,7 @@ export * from "./types.ts"
 // Same env as the checkout client: NEXT_PUBLIC_CHECKOUT_API_MODE = "mock" (default) or "live".
 export function createAuthApi(): AuthApi {
   if (process.env.NEXT_PUBLIC_CHECKOUT_API_MODE === "live") {
-    return createLiveAuth(process.env.NEXT_PUBLIC_CHECKOUT_API_BASE_URL ?? "https://dikkha-api.neuronfish.dev")
+    return createLiveAuth(process.env.NEXT_PUBLIC_CHECKOUT_API_BASE_URL || "https://dikkha-api.neuronfish.dev")
   }
   return createMockAuth()
 }

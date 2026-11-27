@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { getContent } from "@/content/dikkha"
+import { formLang, getContent } from "@/content/dikkha"
 import type { Lang } from "@/content/dikkha/lang"
 import { normalizePhone } from "@/lib/auth"
 import { CheckoutApiError } from "@/lib/checkout/errors"
@@ -32,6 +32,7 @@ const button = "w-full rounded-xl bg-dk-primary px-4 py-3 text-base font-medium 
 
 export function SignIn({ lang }: { lang: Lang }) {
   const t = getContent(lang).auth
+  const textLang = formLang(lang) // the form is English until its Bangla text is supplied
   const { ready, session, current, auth } = useSession()
   const [step, setStep] = useState<"phone" | "otp" | "needs-setup">("phone")
   const [phone, setPhone] = useState("")
@@ -79,7 +80,7 @@ export function SignIn({ lang }: { lang: Lang }) {
 
   if (current) {
     return (
-      <div lang={lang} className="space-y-4">
+      <div lang={textLang} className="space-y-4">
         <p>
           {t.signedInAs} <strong>{current.name ?? ""}</strong>
         </p>
@@ -92,19 +93,22 @@ export function SignIn({ lang }: { lang: Lang }) {
 
   if (step === "needs-setup") {
     return (
-      <div lang={lang} className="space-y-4">
+      <div lang={textLang} className="space-y-4">
         <h2 className="text-xl font-semibold">{t.needsSetupTitle}</h2>
         <p className="text-dk-muted!">{t.needsSetupBody}</p>
         <a className={`${button} block text-center`} href={DIKKHA_PLAY_STORE_URL} target="_blank" rel="noopener noreferrer">
           {t.getApp}
         </a>
+        <button type="button" className="w-full text-sm text-dk-primary-ink" onClick={() => { setStep("phone"); setOtp(""); setError(null); setWait(0) }}>
+          {t.changeNumber}
+        </button>
       </div>
     )
   }
 
   return (
     <form
-      lang={lang}
+      lang={textLang}
       className="space-y-4"
       onSubmit={(e) => {
         e.preventDefault()
@@ -125,7 +129,7 @@ export function SignIn({ lang }: { lang: Lang }) {
         </label>
       )}
       {error && (
-        <p role="alert" className="text-sm text-dk-bad">
+        <p role="alert" className="text-sm text-dk-bad!">
           {t.errors[error]}
         </p>
       )}

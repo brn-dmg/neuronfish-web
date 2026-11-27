@@ -1,8 +1,8 @@
 "use client"
 
-import { createContext, useContext, useMemo, useSyncExternalStore } from "react"
+import { createContext, useContext, useEffect, useMemo, useSyncExternalStore } from "react"
 import { createAuthApi, type AuthApi } from "@/lib/auth"
-import { createSession, type Session, type StoredSession } from "@/lib/auth/session"
+import { createSession, SESSION_KEY, type Session, type StoredSession } from "@/lib/auth/session"
 import { createCheckoutApi, type CheckoutApi } from "@/lib/checkout"
 import { withRefresh } from "@/lib/checkout/withRefresh"
 
@@ -30,6 +30,14 @@ export function SessionProvider({ children }: { children: React.ReactNode }) {
   }, [])
   // The server renders signed out; the browser snapshot takes over after hydration.
   const current = useSyncExternalStore(value.session.subscribe, value.session.get, () => null)
+  // Another tab signed in, out or refreshed: pick up its tokens (refresh tokens rotate).
+  useEffect(() => {
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === SESSION_KEY || e.key === null) value.session.load()
+    }
+    window.addEventListener("storage", onStorage)
+    return () => window.removeEventListener("storage", onStorage)
+  }, [value])
   const ready = useSyncExternalStore(noopSubscribe, () => true, () => false)
 
   return <SessionContext.Provider value={{ ...value, ready, current }}>{children}</SessionContext.Provider>

@@ -57,3 +57,8 @@ function merge<T extends object>(base: T, over: DeepPartial<T>): T {
 export function getContent(lang: Lang): Content {
   return lang === "en" ? en : merge(en, bn)
 }
+
+/** Language of the sign-in form text: Bangla only once its Bangla title exists, otherwise English. */
+export function formLang(lang: Lang): Lang {
+  return lang === "bn" && bn.auth?.title ? "bn" : "en"
+}

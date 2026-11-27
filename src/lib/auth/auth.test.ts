@@ -78,3 +78,59 @@ test("withRefresh retries once after a 401", async () => {
   const stuck = withRefresh({ ...api, listPackages: api.getWallet } as unknown as CheckoutApi, async () => false)
   await assert.rejects(stuck.getWallet(), (e) => e instanceof CheckoutApiError && e.status === 401)
 })
+
+test("signing out while a refresh is running does not bring the session back", async () => {
+  let release!: () => void
+  const slow = {
+    ...createMockAuth(),
+    refresh: () => new Promise<{ access_token: string; refresh_token: string; expires_in: number }>((r) => (release = () => r({ access_token: "a2", refresh_token: "r2", expires_in: 3600 }))),
+  }
+  const store = memory()
+  const s = createSession(slow, store)
+  s.signIn({ access_token: "a", refresh_token: "r" }, "x")
+  const pending = s.refresh()
+  s.signOut()
+  release()
+  assert.equal(await pending, false)
+  assert.equal(s.get(), null)
+  assert.equal(store.getItem("dikkha.session"), null)
+})
+
+test("a rate limit (429) on refresh keeps the session", async () => {
+  const limited = { ...createMockAuth(), refresh: async () => { throw new CheckoutApiError(429, "slow down", true) } }
+  const s = createSession(limited, memory())
+  s.signIn({ access_token: "a", refresh_token: "r" }, "x")
+  assert.equal(await s.refresh(), false)
+  assert.equal(s.get()?.refresh_token, "r")
+})
+
+test("two tabs: the second adopts the tokens the first one rotated", async () => {
+  const auth = createMockAuth()
+  const store = memory()
+  const r = await auth.verifyOtp("+8801712345678", MOCK_OTP)
+  const a = createSession(auth, store)
+  a.signIn(r, "x")
+  const b = createSession(auth, store)
+  b.load()
+  assert.equal(await a.refresh(), true) // rotates the refresh token in the store
+  assert.equal(await b.refresh(), true) // would be a 401 with the old token; adopts the new one instead
+  assert.equal(b.get()?.refresh_token, a.get()?.refresh_token)
+  assert.equal(await b.refresh(), true) // and keeps working
+})
+
+test("a stored value that is not a session is ignored", () => {
+  const store = memory()
+  store.setItem("dikkha.session", "{}")
+  assert.equal(createSession(createMockAuth(), store).load(), null)
+  store.setItem("dikkha.session", "not json")
+  assert.equal(createSession(createMockAuth(), store).load(), null)
+})
+
+test("a refresh response without expires_in falls back to one hour", async () => {
+  const noTtl = { ...createMockAuth(), refresh: async () => ({ access_token: "a2", refresh_token: "r2" }) as never }
+  const t = 1000
+  const s = createSession(noTtl, memory(), () => t)
+  s.signIn({ access_token: "a", refresh_token: "r" }, null)
+  await s.refresh()
+  assert.equal(s.get()?.expires_at, 1000 + 60 * 60 * 1000)
+})
