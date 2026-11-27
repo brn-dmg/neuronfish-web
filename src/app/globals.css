@@ -510,3 +510,19 @@ p {
   line-height: 1.625;
   margin-top: 0;
 }
+
+/* The shared Checkout reads its colors from --ck-* variables. They are defined on the app's layout
+   wrapper class (here .dk-root); a new app (Poshra, BCS) defines the same names on its own wrapper. */
+.dk-root {
+  --ck-primary: var(--color-dk-primary);
+  --ck-on-primary: var(--color-dk-on-primary);
+  --ck-primary-ink: var(--color-dk-primary-ink);
+  --ck-surface: var(--color-dk-surface);
+  --ck-ink: var(--color-dk-ink);
+  --ck-muted: var(--color-dk-muted);
+  --ck-line: var(--color-dk-line);
+  --ck-line-strong: var(--color-dk-line-strong);
+  --ck-bad: var(--color-dk-bad);
+  --ck-coin-soft: var(--color-dk-coin-soft);
+  --ck-coin-ink: var(--color-dk-coin-ink);
+}

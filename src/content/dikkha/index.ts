@@ -1,12 +1,56 @@
 import type { Lang } from "./lang.ts"
+import type { CheckoutCopy } from "@/components/checkout/brand"
 
 // English is the complete source and defines the shape. Bangla may be partial:
 // any key missing in `bn` falls back to the English text, so an English
 // placeholder ships until the Bangla is supplied.
+const checkout: CheckoutCopy = {
+  title: "Buy Coins",
+  account: "Coins will be added to {name}'s Dikkha account.",
+  pickPackage: "Choose a Coin package",
+  coins: "{coins} Coins",
+  bonus: "includes {bonus} bonus Coins",
+  partnerLine: "Payment goes to our partner Apon Bazaar's verified bKash merchant account.",
+  scanQr: "Scan the QR code in the bKash app, or send the exact amount to the merchant number.",
+  qrAlt: "bKash QR code",
+  merchantNumber: "Merchant number",
+  orderCode: "Order code",
+  payBefore: "Pay before {time}.",
+  payHint: "After you pay, enter the TrxID from the bKash message. A parent can pay from a different bKash number.",
+  trxLabel: "bKash TrxID",
+  payerLabel: "bKash number you paid from",
+  submit: "I have paid",
+  changePackage: "Choose a different package",
+  expiredTitle: "This order expired",
+  expiredBody: "Nothing was charged. Start a new order to continue.",
+  newOrder: "Start a new order",
+  doneAddedTitle: "Your Coins are added",
+  doneAddedBody: "The Coins are in your balance. We are still checking your payment.",
+  donePendingTitle: "We have your payment",
+  donePendingBody: "Your Coins will be added once we verify the payment.",
+  balance: "Balance: {coins} Coins",
+  backHome: "Back to Dikkha",
+  loading: "Loading...",
+  retry: "Try again",
+  errors: {
+    invalidPayer: "Enter the bKash number you paid from, like 01XXXXXXXXX.",
+    invalidTrx: "That TrxID does not look right. Check the bKash message and try again.",
+    duplicateTrx: "This TrxID has already been used.",
+    paymentInProgress: "You already have a payment waiting to be verified.",
+    tooManyAttempts: "Too many tries. Wait a while and try again.",
+    orderNotOpen: "That order is already closed.",
+    orderNotFound: "We could not find that order.",
+    invalidPackage: "That package is not available. Choose another.",
+    network: "No connection. Check your internet and try again.",
+    generic: "Something went wrong. Try again.",
+  },
+}
+
 export const en = {
   brand: "Dikkha",
   lang: { switchTo: "বাংলা", switchLabel: "Switch to Bangla" },
   footer: { privacy: "Privacy", terms: "Terms" },
+  checkout,
   auth: {
     signIn: "Sign in",
     signOut: "Sign out",
@@ -61,4 +105,9 @@ export function getContent(lang: Lang): Content {
 /** Language of the sign-in form text: Bangla only once its Bangla title exists, otherwise English. */
 export function formLang(lang: Lang): Lang {
   return lang === "bn" && bn.auth?.title ? "bn" : "en"
+}
+
+/** Language of the checkout text: Bangla only once its Bangla title exists, otherwise English. */
+export function checkoutLang(lang: Lang): Lang {
+  return lang === "bn" && bn.checkout?.title ? "bn" : "en"
 }
