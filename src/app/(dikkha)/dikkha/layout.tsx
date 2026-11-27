@@ -13,7 +13,7 @@ const hindSiliguri = Hind_Siliguri({
 export default function DikkhaLayout({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className={`${outfit.variable} ${hindSiliguri.variable} flex min-h-screen flex-col bg-dk-bg font-dk text-dk-ink`}
+      className={`dk-root ${outfit.variable} ${hindSiliguri.variable} flex min-h-screen flex-col bg-dk-bg font-dk text-dk-ink`}
       style={{ colorScheme: "light" }}
     >
       <DikkhaHeader />
