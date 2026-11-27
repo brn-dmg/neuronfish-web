@@ -33,6 +33,26 @@
 
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
+
+  /* Dikkha section (route group (dikkha)): light theme from the Dikkha design system. Prefixed dk- so it never clashes with the main site tokens. */
+  --font-dk: var(--font-outfit), var(--font-hind-siliguri), "Noto Sans Bengali", sans-serif;
+  --color-dk-bg: #F4F5F1;
+  --color-dk-surface: #FFFFFF;
+  --color-dk-ink: #16211D;
+  --color-dk-muted: #5D6A65;
+  --color-dk-line: #E1E4DE;
+  --color-dk-line-strong: #78847F;
+  --color-dk-primary: #0D6B51;
+  --color-dk-on-primary: #FFFFFF;
+  --color-dk-primary-soft: #DDEFE7;
+  --color-dk-primary-ink: #0B5A44;
+  --color-dk-coin: #E2A522;
+  --color-dk-coin-soft: #FBEFCF;
+  --color-dk-coin-ink: #7A5306;
+  --color-dk-warn: #A84D08;
+  --color-dk-warn-soft: #FDEBD8;
+  --color-dk-bad: #B42318;
+  --color-dk-bad-soft: #FDE4E1;
 }
 
 :root {
