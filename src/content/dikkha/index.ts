@@ -50,6 +50,11 @@ export const en = {
   brand: "Dikkha",
   lang: { switchTo: "বাংলা", switchLabel: "Switch to Bangla" },
   footer: { privacy: "Privacy", terms: "Terms" },
+  meta: {
+    title: "Dikkha: AI study assistant in Bangla for Class 9–10 (SSC 2027)",
+    description: "Dikkha explains your Class 9–10 NCTB book in Bangla, chapter by chapter, with practice and model tests. Built for SSC 2027. Start free.",
+    ogAlt: "Dikkha, the AI study assistant, with Baghu",
+  },
   nav: { how: "How it works", prices: "Prices", parents: "For parents", faq: "FAQ" },
   checkout,
   home: {
@@ -165,6 +170,11 @@ type DeepPartial<T> = { [K in keyof T]?: T[K] extends object ? DeepPartial<T[K]>
 export const bn: DeepPartial<Content> = {
   lang: { switchTo: "English", switchLabel: "ইংরেজিতে দেখো" },
   footer: { privacy: "গোপনীয়তা", terms: "শর্ত" },
+  meta: {
+    title: "Dikkha: SSC ২০২৭-এর জন্য বাংলায় AI পড়ার সহকারী",
+    description: "তোমার বইয়ের অধ্যায় ধরে বাংলায় ব্যাখ্যা, প্র্যাকটিস আর মডেল টেস্ট। ক্লাস ৯–১০, SSC ২০২৭। বিনামূল্যে শুরু করো।",
+    ogAlt: "Dikkha: AI পড়ার সহকারী, সঙ্গে বাঘু",
+  },
   nav: { how: "কীভাবে কাজ করে", prices: "দাম", parents: "অভিভাবকদের জন্য", faq: "প্রশ্নোত্তর" },
   home: {
     hero: {

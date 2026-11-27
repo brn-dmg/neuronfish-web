@@ -23,6 +23,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/dikkha`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+      alternates: { languages: { bn: `${baseUrl}/dikkha`, en: `${baseUrl}/dikkha/en` } },
+    },
+    {
+      url: `${baseUrl}/dikkha/en`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+      alternates: { languages: { bn: `${baseUrl}/dikkha`, en: `${baseUrl}/dikkha/en` } },
+    },
+    {
       url: `${baseUrl}/products/dikkha`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
