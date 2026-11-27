@@ -1,5 +1,5 @@
 import type { Lang } from "./lang.ts"
-import type { CheckoutCopy } from "../../components/checkout/brand.ts"
+import type { CheckoutCopy } from "@/components/checkout/brand"
 
 // English is the complete source and defines the shape. Bangla may be partial:
 // any key missing in `bn` falls back to the English text, so an English
@@ -10,13 +10,11 @@ const checkout: CheckoutCopy = {
   pickPackage: "Choose a Coin package",
   coins: "{coins} Coins",
   bonus: "includes {bonus} bonus Coins",
-  continue: "Continue",
   partnerLine: "Payment goes to our partner Apon Bazaar's verified bKash merchant account.",
   scanQr: "Scan the QR code in the bKash app, or send the exact amount to the merchant number.",
   qrAlt: "bKash QR code",
   merchantNumber: "Merchant number",
   orderCode: "Order code",
-  amount: "Amount",
   payBefore: "Pay before {time}.",
   payHint: "After you pay, enter the TrxID from the bKash message. A parent can pay from a different bKash number.",
   trxLabel: "bKash TrxID",
@@ -27,7 +25,7 @@ const checkout: CheckoutCopy = {
   expiredBody: "Nothing was charged. Start a new order to continue.",
   newOrder: "Start a new order",
   doneAddedTitle: "Your Coins are added",
-  doneAddedBody: "We have your payment details and are now verifying the payment.",
+  doneAddedBody: "The Coins are in your balance. We are still checking your payment.",
   donePendingTitle: "We have your payment",
   donePendingBody: "Your Coins will be added once we verify the payment.",
   balance: "Balance: {coins} Coins",

@@ -72,9 +72,9 @@ export function Checkout({ brand, api, studentName }: { brand: CheckoutBrand; ap
   }, [])
 
   // An open order expires after 60 minutes; show it as soon as it does.
-  const orderExpiry = view.v === "order" ? Date.parse(view.order.expires_at) : null
+  const orderExpiry = view.v === "order" ? Date.parse(view.order.expires_at) : NaN
   useEffect(() => {
-    if (orderExpiry === null) return
+    if (Number.isNaN(orderExpiry)) return
     const id = setTimeout(() => setView({ v: "expired" }), Math.max(0, orderExpiry - Date.now()))
     return () => clearTimeout(id)
   }, [orderExpiry])
@@ -88,18 +88,21 @@ export function Checkout({ brand, api, studentName }: { brand: CheckoutBrand; ap
     }
   }
 
-  async function changePackage(order: Order) {
+  async function changePackage(order: Order): Promise<ErrKey | null> {
     try {
       await api.cancelOrder(order.order_code)
-    } catch {
-      // already closed: the reload below shows the right state
+    } catch (e) {
+      const key = errKey(e)
+      // An order that is already closed is fine: the reload below shows the right state.
+      if (key !== "orderNotOpen" && key !== "orderNotFound") return key
     }
     await go()
+    return null
   }
 
   async function submit(order: Order, trx: string, payer: string): Promise<ErrKey | null> {
     try {
-      const r = await api.submitTrx(order.order_code, { trx_id: trx.trim().toUpperCase(), payer_msisdn: payer.trim() })
+      const r = await api.submitTrx(order.order_code, { trx_id: trx.trim().toUpperCase(), payer_msisdn: payer })
       const balance = await api.getWallet().then((w) => w.coins_balance, () => r.coins_balance)
       setView({ v: "done", payment: r.payment, balance })
       return null
@@ -162,7 +165,7 @@ export function Checkout({ brand, api, studentName }: { brand: CheckoutBrand; ap
   )
 }
 
-function OrderView({ order, t, onSubmit, onChange }: { order: Order; t: CheckoutCopy; onSubmit: (o: Order, trx: string, payer: string) => Promise<ErrKey | null>; onChange: () => void }) {
+function OrderView({ order, t, onSubmit, onChange }: { order: Order; t: CheckoutCopy; onSubmit: (o: Order, trx: string, payer: string) => Promise<ErrKey | null>; onChange: () => Promise<ErrKey | null> }) {
   const [trx, setTrx] = useState("")
   const [payer, setPayer] = useState("")
   const [error, setError] = useState<ErrKey | null>(null)
@@ -171,9 +174,10 @@ function OrderView({ order, t, onSubmit, onChange }: { order: Order; t: Checkout
 
   async function send(e: React.FormEvent) {
     e.preventDefault()
-    if (!normalizePhone(payer)) return setError("invalidPayer")
+    const payerNumber = normalizePhone(payer) // canonical +8801XXXXXXXXX, the same form sign-in uses
+    if (!payerNumber) return setError("invalidPayer")
     setBusy(true)
-    setError(await onSubmit(order, trx, payer))
+    setError(await onSubmit(order, trx, payerNumber))
     setBusy(false)
   }
 
@@ -207,7 +211,7 @@ function OrderView({ order, t, onSubmit, onChange }: { order: Order; t: Checkout
         </label>
         {error && <p role="alert" className="text-sm text-(color:--ck-bad)!">{t.errors[error]}</p>}
         <button className={primary} disabled={busy}>{t.submit}</button>
-        <button type="button" className={link} onClick={onChange} disabled={busy}>{t.changePackage}</button>
+        <button type="button" className={link} disabled={busy} onClick={async () => { setBusy(true); setError(await onChange()); setBusy(false) }}>{t.changePackage}</button>
       </form>
     </div>
   )
@@ -215,7 +219,7 @@ function OrderView({ order, t, onSubmit, onChange }: { order: Order; t: Checkout
 
 function Done({ payment, balance, brand }: { payment: Payment; balance: number; brand: CheckoutBrand }) {
   const t = brand.copy
-  const added = payment.status === "unverified" // coins are already in; "pending" waits for verification
+  const added = payment.status !== "pending" // "pending" waits for verification; any other status already has its Coins
   return (
     <div className={`${card} space-y-3`}>
       <h2>{added ? t.doneAddedTitle : t.donePendingTitle}</h2>

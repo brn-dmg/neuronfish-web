@@ -7,13 +7,11 @@ export type CheckoutCopy = {
   pickPackage: string
   coins: string // {coins}
   bonus: string // {bonus}
-  continue: string
   partnerLine: string
   scanQr: string
   qrAlt: string
   merchantNumber: string
   orderCode: string
-  amount: string
   payBefore: string // {time}
   payHint: string
   trxLabel: string
