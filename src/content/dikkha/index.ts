@@ -7,6 +7,31 @@ export const en = {
   brand: "Dikkha",
   lang: { switchTo: "বাংলা", switchLabel: "Switch to Bangla" },
   footer: { privacy: "Privacy", terms: "Terms" },
+  auth: {
+    signIn: "Sign in",
+    signOut: "Sign out",
+    title: "Sign in with your Dikkha account",
+    phoneLabel: "Mobile number",
+    sendCode: "Send code",
+    otpLabel: "Code from the SMS",
+    verify: "Verify",
+    sendAgain: "Send the code again",
+    changeNumber: "Use a different number",
+    signedInAs: "Signed in as",
+    needsSetupTitle: "Finish setup in the app first",
+    needsSetupBody: "Your Dikkha account is not set up yet. Open the Dikkha app, finish setup, then come back to buy Coins.",
+    getApp: "Get the app",
+    errors: {
+      invalidPhone: "Enter a valid Bangladesh mobile number, like 01XXXXXXXXX.",
+      invalidOtp: "That code is not right. Check the SMS and try again.",
+      otpExpired: "That code has expired. Send a new one.",
+      otpLocked: "Too many wrong codes. Wait a while and try again.",
+      tooManyRequests: "Too many tries. Wait a while and try again.",
+      smsFailed: "We could not send the SMS. Try again in a moment.",
+      network: "No connection. Check your internet and try again.",
+      generic: "Something went wrong. Try again.",
+    },
+  },
 }
 
 export type Content = typeof en
@@ -16,6 +41,7 @@ type DeepPartial<T> = { [K in keyof T]?: T[K] extends object ? DeepPartial<T[K]>
 export const bn: DeepPartial<Content> = {
   lang: { switchTo: "English", switchLabel: "ইংরেজিতে দেখো" },
   footer: { privacy: "গোপনীয়তা", terms: "শর্ত" },
+  auth: { signIn: "সাইন ইন" }, // from the Q109 landing copy; the rest falls back to English
 }
 
 function merge<T extends object>(base: T, over: DeepPartial<T>): T {
