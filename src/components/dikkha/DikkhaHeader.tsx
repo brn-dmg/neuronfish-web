@@ -19,6 +19,13 @@ export function DikkhaHeader() {
         <Link href={base} className="text-xl font-semibold text-dk-primary">
           {t.brand}
         </Link>
+        <nav className="hidden items-center gap-6 text-sm text-dk-muted md:flex">
+          {(["how", "prices", "parents", "faq"] as const).map((id) => (
+            <Link key={id} href={`${base}#${id}`} className="hover:text-dk-ink">
+              {t.nav[id]}
+            </Link>
+          ))}
+        </nav>
         <div className="flex items-center gap-3">
         {checkoutEnabled && ready && (
           current ? (
