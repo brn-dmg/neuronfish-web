@@ -1,11 +1,15 @@
-import { getContent } from "@/content/dikkha"
 import type { Lang } from "@/content/dikkha/lang"
+import { ChatDemo } from "./home/ChatDemo"
+import { Hero } from "./home/Hero"
+import { HowItWorks } from "./home/HowItWorks"
 
-// Placeholder until the product page sections land (J2-7, J2-8).
+// Sections 1 to 3 of the product page. Features, prices, parents, FAQ and the final call to action come in J2-17.
 export function DikkhaHome({ lang }: { lang: Lang }) {
   return (
-    <div lang={lang} className="mx-auto max-w-5xl px-4 py-16">
-      <h1 className="text-3xl font-semibold">{getContent(lang).brand}</h1>
+    <div lang={lang}>
+      <Hero lang={lang} />
+      <ChatDemo lang={lang} />
+      <HowItWorks lang={lang} />
     </div>
   )
 }

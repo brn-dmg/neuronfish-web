@@ -51,6 +51,36 @@ export const en = {
   lang: { switchTo: "বাংলা", switchLabel: "Switch to Bangla" },
   footer: { privacy: "Privacy", terms: "Terms" },
   checkout,
+  home: {
+    hero: {
+      chip: "SSC 2027 · {n} days left",
+      chipNoCount: "SSC 2027",
+      title: "Stuck while studying? Dikkha explains it in one minute",
+      body: "Explanations in Bangla that follow your book's chapters, plus practice and model tests. Start for free.",
+      play: "Google Play",
+      playLabel: "Get Dikkha on Google Play",
+      trust: ["In Bangla", "From the NCTB book", "For every study group"],
+      baghuAlt: "Baghu, the Dikkha mascot",
+      previewToday: "Today's work",
+      previewChapter: "Chapter 3 · Newton's laws",
+      previewChat: "Chat: \"How are force and acceleration related?\"",
+    },
+    chat: {
+      title: "However you write your question, Dikkha understands",
+      lead: "In Bangla, in English, or mixed. The answer comes in the language of your book.",
+      question: "newton er 2nd law ta ektu sohoj kore bolo",
+      answer: "Force = mass × acceleration. So the same force moves a light object faster.",
+      topic: "From Chapter 3 · Topic 3.3",
+    },
+    how: {
+      title: "In three steps",
+      steps: [
+        { title: "Today's work", body: "2–3 tasks every day, picked for you" },
+        { title: "Learn chapter by chapter", body: "Lessons, practice, questions and answers" },
+        { title: "Take a model test", body: "See how ready you are" },
+      ],
+    },
+  },
   auth: {
     signIn: "Sign in",
     signOut: "Sign out",
@@ -86,6 +116,36 @@ type DeepPartial<T> = { [K in keyof T]?: T[K] extends object ? DeepPartial<T[K]>
 export const bn: DeepPartial<Content> = {
   lang: { switchTo: "English", switchLabel: "ইংরেজিতে দেখো" },
   footer: { privacy: "গোপনীয়তা", terms: "শর্ত" },
+  home: {
+    hero: {
+      chip: "SSC ২০২৭ · {n} দিন বাকি",
+      chipNoCount: "SSC ২০২৭",
+      title: "পড়ায় আটকে গেলে, ১ মিনিটে বুঝিয়ে দেবে Dikkha",
+      body: "তোমার বইয়ের অধ্যায় ধরে বাংলায় ব্যাখ্যা, প্র্যাকটিস আর মডেল টেস্ট। বিনামূল্যে শুরু করো।",
+      play: "Google Play",
+      playLabel: "Google Play থেকে Dikkha নামাও",
+      trust: ["বাংলায়", "NCTB বই থেকে", "সব বিভাগের জন্য"],
+      baghuAlt: "Dikkha-র মাসকট বাঘু",
+      previewToday: "আজকের কাজ",
+      previewChapter: "অধ্যায় ৩ · নিউটনের সূত্র",
+      previewChat: "চ্যাট: \"বল আর ত্বরণ কীভাবে মিলে?\"",
+    },
+    chat: {
+      title: "তোমার প্রশ্ন যেভাবেই লেখো, বুঝে নেবে",
+      lead: "বাংলা, English বা মিশিয়ে। উত্তর আসবে তোমার বইয়ের ভাষায়।",
+      question: "newton er 2nd law ta ektu sohoj kore bolo",
+      answer: "বল = ভর × ত্বরণ। মানে একই বলে হালকা জিনিস বেশি দৌড়ায়।",
+      topic: "অধ্যায় ৩ · টপিক ৩.৩ থেকে",
+    },
+    how: {
+      title: "তিন ধাপে",
+      steps: [
+        { title: "আজকের কাজ", body: "প্রতিদিন ২–৩টা, তোমার জন্য বাছা" },
+        { title: "অধ্যায় ধরে শেখো", body: "পাঠ, প্র্যাকটিস, প্রশ্নোত্তর" },
+        { title: "মডেল টেস্ট দাও", body: "প্রস্তুতি কতটুকু, দেখো" },
+      ],
+    },
+  },
   auth: { signIn: "সাইন ইন" }, // from the Q109 landing copy; the rest falls back to English
 }
 
@@ -93,7 +153,7 @@ function merge<T extends object>(base: T, over: DeepPartial<T>): T {
   const out = { ...base } as Record<string, unknown>
   for (const [k, v] of Object.entries(over)) {
     const b = (base as Record<string, unknown>)[k]
-    out[k] = v && typeof v === "object" && b && typeof b === "object" ? merge(b, v) : (v ?? b)
+    out[k] = v && typeof v === "object" && !Array.isArray(v) && b && typeof b === "object" ? merge(b, v) : (v ?? b)
   }
   return out as T
 }
