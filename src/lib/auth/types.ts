@@ -15,6 +15,8 @@ export interface AuthApi {
   sendOtp(phone: string): Promise<void>
   verifyOtp(phone: string, otp: string): Promise<VerifyOtpResult>
   refresh(refreshToken: string): Promise<RefreshResult>
+  /** `idToken` is the Google credential; the result is the same as for the phone code. */
+  googleSignIn(idToken: string): Promise<VerifyOtpResult>
 }
 
 // The backend accepts 01..., 8801... and +8801...; we always send the canonical +8801XXXXXXXXX.

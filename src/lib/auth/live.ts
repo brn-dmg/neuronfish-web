@@ -28,5 +28,6 @@ export function createLiveAuth(baseUrl: string): AuthApi {
     // Ignore the older `token` and `is_new_user` fields.
     verifyOtp: (phone, otp) => post("/api/auth/verify-otp", { phone, otp }),
     refresh: (refresh_token) => post("/api/auth/refresh", { refresh_token }),
+    googleSignIn: (id_token) => post("/api/auth/google", { id_token }),
   }
 }
