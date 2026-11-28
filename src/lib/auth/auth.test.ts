@@ -3,7 +3,7 @@ import { test } from "node:test"
 import { CheckoutApiError } from "../checkout/errors.ts"
 import type { CheckoutApi } from "../checkout/types.ts"
 import { withRefresh } from "../checkout/withRefresh.ts"
-import { createMockAuth, MOCK_OTP } from "./mock.ts"
+import { createMockAuth, MOCK_GOOGLE_NEW_TOKEN, MOCK_GOOGLE_TOKEN, MOCK_OTP } from "./mock.ts"
 import { createSession } from "./session.ts"
 import { normalizePhone } from "./types.ts"
 
@@ -133,4 +133,12 @@ test("a refresh response without expires_in falls back to one hour", async () =>
   s.signIn({ access_token: "a", refresh_token: "r" }, null)
   await s.refresh()
   assert.equal(s.get()?.expires_at, 1000 + 60 * 60 * 1000)
+})
+
+test("google sign-in gives the same result as the phone code", async () => {
+  const auth = createMockAuth()
+  const ok = await auth.googleSignIn(MOCK_GOOGLE_TOKEN)
+  assert.equal(ok.needs_profile, false)
+  assert.equal((await auth.googleSignIn(MOCK_GOOGLE_NEW_TOKEN)).needs_profile, true)
+  await assert.rejects(auth.googleSignIn("nope"), (e) => e instanceof CheckoutApiError && e.detail === "Invalid Google token")
 })

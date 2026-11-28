@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react"
 import { formLang, getContent } from "@/content/dikkha"
 import type { Lang } from "@/content/dikkha/lang"
-import { normalizePhone } from "@/lib/auth"
+import { normalizePhone, type VerifyOtpResult } from "@/lib/auth"
 import { CheckoutApiError } from "@/lib/checkout/errors"
 import { DIKKHA_PLAY_STORE_URL } from "@/lib/constants"
+import { GoogleButton } from "./GoogleButton"
 import { useSession } from "./SessionProvider"
 
 type Errors = ReturnType<typeof getContent>["auth"]["errors"]
@@ -21,6 +22,8 @@ function errorKey(e: unknown): keyof Errors {
     case "OTP expired": return "otpExpired"
     case "OTP verification locked": return "otpLocked"
     case "Failed to send OTP SMS": return "smsFailed"
+    case "Invalid Google token": return "googleFailed"
+    case "Google sign-in unavailable": return "googleUnavailable"
     default: return e.status === 429 ? "tooManyRequests" : "generic"
   }
 }
@@ -68,13 +71,15 @@ export function SignIn({ lang }: { lang: Lang }) {
       setWait(RESEND_SECONDS)
     })
 
-  const verify = () =>
-    run(async () => {
-      const r = await auth.verifyOtp(normalizePhone(phone)!, otp.trim())
-      // Accounts that have not finished setup in the app cannot buy Coins: keep no tokens.
-      if (r.needs_profile || r.is_new) return setStep("needs-setup")
-      session.signIn(r, r.user?.name ?? null)
-    })
+  // Phone code and Google give the same result.
+  const finish = (r: VerifyOtpResult) => {
+    // Accounts that have not finished setup in the app cannot buy Coins: keep no tokens.
+    if (r.needs_profile || r.is_new) return setStep("needs-setup")
+    session.signIn(r, r.user?.name ?? null)
+  }
+
+  const verify = () => run(async () => finish(await auth.verifyOtp(normalizePhone(phone)!, otp.trim())))
+  const google = (idToken: string) => run(async () => finish(await auth.googleSignIn(idToken)))
 
   if (!ready) return null
 
@@ -136,6 +141,12 @@ export function SignIn({ lang }: { lang: Lang }) {
       <button className={button} disabled={busy}>
         {step === "phone" ? t.sendCode : t.verify}
       </button>
+      {step === "phone" && (
+        <>
+          <p className="text-center text-sm text-dk-muted!">{t.or}</p>
+          <GoogleButton onCredential={google} disabled={busy} />
+        </>
+      )}
       {step === "otp" && (
         <div className="flex justify-between text-sm text-dk-primary-ink">
           <button type="button" onClick={send} disabled={busy || wait > 0} className="disabled:text-dk-muted">

@@ -150,6 +150,7 @@ export const en = {
     needsSetupTitle: "Finish setup in the app first",
     needsSetupBody: "Your Dikkha account is not set up yet. Open the Dikkha app, finish setup, then come back to buy Coins.",
     getApp: "Get the app",
+    or: "or",
     errors: {
       invalidPhone: "Enter a valid Bangladesh mobile number, like 01XXXXXXXXX.",
       invalidOtp: "That code is not right. Check the SMS and try again.",
@@ -157,6 +158,8 @@ export const en = {
       otpLocked: "Too many wrong codes. Wait a while and try again.",
       tooManyRequests: "Too many tries. Wait a while and try again.",
       smsFailed: "We could not send the SMS. Try again in a moment.",
+      googleFailed: "Google sign-in did not work. Try again or use your mobile number.",
+      googleUnavailable: "Google sign-in is not available right now. Use your mobile number instead.",
       network: "No connection. Check your internet and try again.",
       generic: "Something went wrong. Try again.",
     },
