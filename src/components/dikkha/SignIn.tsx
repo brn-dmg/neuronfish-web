@@ -141,12 +141,7 @@ export function SignIn({ lang }: { lang: Lang }) {
       <button className={button} disabled={busy}>
         {step === "phone" ? t.sendCode : t.verify}
       </button>
-      {step === "phone" && (
-        <>
-          <p className="text-center text-sm text-dk-muted!">{t.or}</p>
-          <GoogleButton onCredential={google} disabled={busy} />
-        </>
-      )}
+      {step === "phone" && <GoogleButton onCredential={google} disabled={busy} orLabel={t.or} />}
       {step === "otp" && (
         <div className="flex justify-between text-sm text-dk-primary-ink">
           <button type="button" onClick={send} disabled={busy || wait > 0} className="disabled:text-dk-muted">
