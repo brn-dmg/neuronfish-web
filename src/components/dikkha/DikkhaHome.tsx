@@ -1,4 +1,6 @@
+import { dikkhaJsonLd } from "@/content/dikkha/seo"
 import type { Lang } from "@/content/dikkha/lang"
+import { JsonLd } from "./JsonLd"
 import { CardGrid } from "./home/CardGrid"
 import { ChatDemo } from "./home/ChatDemo"
 import { Faq } from "./home/Faq"
@@ -12,6 +14,7 @@ import { Prices } from "./home/Prices"
 export function DikkhaHome({ lang }: { lang: Lang }) {
   return (
     <div lang={lang}>
+      <JsonLd data={dikkhaJsonLd(lang)} />
       <Hero lang={lang} />
       <ChatDemo lang={lang} />
       <HowItWorks lang={lang} />
