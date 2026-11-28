@@ -45,44 +45,6 @@ const structuredData = {
       name: "NeuronFish",
       publisher: { "@id": `${COMPANY.url}/#organization` },
     },
-    {
-      "@type": "FAQPage",
-      "@id": `${COMPANY.url}/#faq`,
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "What does NeuronFish do?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "NeuronFish, Inc. is a technology company that designs and builds enterprise AI systems and modern applications. It develops its own products, including Dikkha AI and Chhar, and works as the technology partner for companies such as Apon Venture Lab, Apon Bazaar, Khulshi Mart, IELTSly, ReachSavvy, and Berai.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Where is NeuronFish based?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "NeuronFish, Inc. is incorporated in Delaware, United States. Its engineering team is based in Dhaka, Bangladesh.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Does NeuronFish take on partner projects?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes. NeuronFish works as the embedded engineering and applied-AI team for a small portfolio of partner companies, building internal agentic AI systems, agentic ERPs, and customer-facing platforms.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "What are NeuronFish's own products?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Dikkha AI, an AI study assistant for Class 9 and 10 students, and Chhar, a location-based deals platform.",
-          },
-        },
-      ],
-    },
   ],
 };
 
