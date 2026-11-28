@@ -87,7 +87,7 @@ export function SignIn({ lang }: { lang: Lang }) {
     return (
       <div lang={textLang} className="space-y-4">
         <p>
-          {t.signedInAs} <strong>{current.name ?? ""}</strong>
+          {t.signedInAs}{current.name && <> <strong>{current.name}</strong></>}
         </p>
         <button className={button} onClick={session.signOut}>
           {t.signOut}
